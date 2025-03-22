@@ -612,9 +612,11 @@ const BoardAndTrainForm: React.FC = () => {
             </Button>
           ) : active < 4 ? (
             active === 3 ? (
-              <Button onClick={form.onSubmit(handleSubmit)} color="blue">
-                Submit Application
-              </Button>
+              <form onSubmit={form.onSubmit(handleSubmit)}>
+                <Button type="submit" color="blue">
+                  Submit Application
+                </Button>
+              </form>
             ) : (
               <Button onClick={nextStep} color="blue">
                 Next Step
