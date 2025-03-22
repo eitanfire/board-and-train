@@ -25,9 +25,7 @@ import {
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import {
-  IconCheck,
-} from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 
 // Styles could be defined here or in a separate file
 const PRIMARY_COLOR = "#3B82F6"; // A nice blue color
@@ -160,61 +158,6 @@ const BoardAndTrainForm: React.FC = () => {
   };
 
   const handleSubmit = (values: typeof form.values) => {
-    const form = useForm({
-      initialValues: {
-        // Owner Information
-        ownerName: "",
-        email: "",
-        phone: "",
-        address: "",
-
-        // Dog Information
-        dogName: "",
-        breed: "",
-        age: null as number | null,
-        gender: "" as "Male" | "Female" | "",
-        weight: null as number | null,
-        neutered: false,
-
-        // Program Details
-        programId: "",
-        startDate: null as Date | null,
-        specialRequirements: "",
-        dietaryRestrictions: "",
-        medications: "",
-
-        // Additional Services
-        extraGrooming: false,
-        advancedTrainingTools: false,
-        inHomeFollowUp: false,
-
-        // Agreements
-        agreeToPolicies: false,
-        agreeToPayment: false,
-      },
-
-      validate: {
-        ownerName: (value) =>
-          value.trim().length < 2 ? "Name must have at least 2 letters" : null,
-        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-        phone: (value) =>
-          /^\d{10}$/.test(value.replace(/\D/g, ""))
-            ? null
-            : "Please enter a valid 10-digit phone number",
-        dogName: (value) =>
-          value.trim().length < 1 ? "Dog name is required" : null,
-        breed: (value) => (value.trim().length < 2 ? "Breed is required" : null),
-        age: (value) => (value === null ? "Age is required" : null),
-        gender: (value) => (!value ? "Please select gender" : null),
-        programId: (value) =>
-          !value ? "Please select a training program" : null,
-        startDate: (value) => (!value ? "Please select a start date" : null),
-        agreeToPolicies: (value) =>
-          !value ? "You must agree to our policies" : null,
-        agreeToPayment: (value) =>
-          !value ? "You must agree to the payment terms" : null,
-      },
-    });
     // Here you would typically send the form data to your backend
     console.log("Form submitted with values:", values);
 
@@ -301,11 +244,7 @@ const BoardAndTrainForm: React.FC = () => {
       </Title>
 
       <Paper withBorder shadow="md" p={30} radius="md" mb={40}>
-        <Stepper
-          active={active}
-          onStepClick={setActive}
-          color="blue"
-        >
+        <Stepper active={active} onStepClick={setActive} color="blue">
           <Stepper.Step label="Owner Information" description="Your details">
             <Box mt={30}>
               <form>
@@ -672,9 +611,15 @@ const BoardAndTrainForm: React.FC = () => {
               Start Over
             </Button>
           ) : active < 4 ? (
-            <Button onClick={nextStep} color="blue">
-              {active === 3 ? "Submit Application" : "Next Step"}
-            </Button>
+            active === 3 ? (
+              <Button onClick={form.onSubmit(handleSubmit)} color="blue">
+                Submit Application
+              </Button>
+            ) : (
+              <Button onClick={nextStep} color="blue">
+                Next Step
+              </Button>
+            )
           ) : null}
         </Group>
       </Paper>
