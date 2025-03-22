@@ -130,3 +130,9 @@ dist
 .pnp.*
 
 .DS_Store
+
+.env
+.env.local
+.env.development
+.env.production
+firebase-config.js

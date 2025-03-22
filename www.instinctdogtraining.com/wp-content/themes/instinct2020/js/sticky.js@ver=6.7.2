@@ -1,0 +1,32 @@
+jQuery(document).ready(function($) {
+    
+
+// When the user scrolls the page, execute myFunction 
+
+try {
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("sticky-nav");
+// Get the offset position of the navbar
+
+var sticky = navbar.offsetTop + 550;
+}catch(e){}
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+try { 
+   if ($(window).width() > 500) {
+		  if (window.pageYOffset >= sticky) {
+		    navbar.classList.add("sticky")
+		  } else {
+		    navbar.classList.remove("sticky");
+		  }
+		 }
+
+
+}catch(e){}
+
+  
+}
+
+});
