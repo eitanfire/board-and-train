@@ -60,7 +60,7 @@ const Content: React.FC = () => {
             Struggling with your dog's training or behavior? Let us give you and
             your dog the skills you need to confidently navigate life together,
             with a fully customized, positive reinforcement Camp + Coaching
-            program with Haley's Portland.
+            program with Haley's Longmont.
           </Text>
         </Box>
       </Paper>
@@ -75,7 +75,7 @@ const Content: React.FC = () => {
             <Text mb="lg">
               Forget about old-fashioned, boot camp-style dog training programs
               that use questionable methods and include little (if any)
-              instruction for you! Haley's Portland Camp + Coaching programs
+              instruction for you! Haley's Longmont Camp + Coaching programs
               combine the powerful learning boost that comes through positive
               reinforcement board & train camp, with the lasting behavior change
               that comes through private coaching sessions. So you and your dog
@@ -276,10 +276,10 @@ const Content: React.FC = () => {
         <Grid gutter="xl" align="center">
           <Grid.Col span={{ base: 12, md: 8 }}>
             <Text size="lg">
-              Haley's Portland's Camp + Coaching programs cost $1395/week and
+              Haley's Longmont's Camp + Coaching programs cost $1395/week and
               are designed for dogs ages 5 months and older (if you have a dog
               younger than 5 months, try Puppy Camp!). Dogs stay at our
-              beautiful Portland facility. Programs last between 1-4 weeks and
+              beautiful Longmont facility. Programs last between 1-4 weeks and
               include private coaching sessions for you, plus lifetime access to
               free and/or low-cost alumni classes.
             </Text>
@@ -371,7 +371,7 @@ const Content: React.FC = () => {
               Book a free discovery call with our Facility Program Manager,
               Vanesa Vizuete, so we can learn more about whether Camp + Coaching
               might be the right fit for you and your pup! Or, connect with us
-              now at 971-358-8787 or portland@haleysdogtraining.com. Our client
+              now at 971-358-8787 or Longmont@haleysdogtraining.com. Our client
               services team would love to learn more about your dog and your
               goals, and help you determine the best way to get started with us!
             </Text>
@@ -412,12 +412,12 @@ const Content: React.FC = () => {
             </Card.Section>
             <Box pt="md">
               <Title order={3} mb="sm">
-                Located in Portland, OR
+                Located in Longmont, OR
               </Title>
               <Text>
-                Located in the St. John's neighborhood of Portland, OR, our
-                Behavioral Health Facility is home to both Haley's Portland and
-                the Animal Behavior Clinic of Portland, which gives access to
+                Located in the St. John's neighborhood of Longmont, OR, our
+                Behavioral Health Facility is home to both Haley's Longmont and
+                the Animal Behavior Clinic of Longmont, which gives access to
                 veterinary behaviorists, certified veterinary technicians,
                 certified behavior consultants and trainers, & our skilled,
                 compassionate care staff all under the same roof. Like all
