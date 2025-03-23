@@ -15,57 +15,91 @@ import {
   Space,
   Divider,
   Accordion,
+  Overlay,
 } from "@mantine/core";
-import { IconCheck, IconPaw, IconDog, IconHeart } from "@tabler/icons-react";
+import { IconCheck, IconPaw, IconHeart } from "@tabler/icons-react";
 
 const Content: React.FC = () => {
   return (
     <Container size="xl" py="xl">
-      {/* Hero Section */}
+      {/* Hero Section with Background Image */}
       <Paper
         radius="md"
         p="xl"
         withBorder
         mb="xl"
-        bg="rgba(232, 241, 250, 0.5)"
+        style={{
+          position: "relative",
+          backgroundImage: 'url("/src/assets/cookie-the-pom-unsplash.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <Title order={1} ta="center" mb="md">
-          Board & Train Camp + Coaching
-        </Title>
-        <Title order={3} ta="center" mb="lg" fw={400} c="dimmed">
-          Our Most Comprehensive Educational Program
-        </Title>
-        <Text size="lg" mb="lg">
-          Struggling with your dog's training or behavior? Let us give you and
-          your dog the skills you need to confidently navigate life together,
-          with a fully customized, positive reinforcement Camp + Coaching
-          program with Haley's Portland.
-        </Text>
+        <Overlay
+          gradient="linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%)"
+          opacity={0.85}
+          zIndex={0}
+          radius="md"
+        />
+        <Box style={{ position: "relative", zIndex: 1 }}>
+          <Title order={1} ta="center" mb="md">
+            Board & Train Camp + Coaching
+          </Title>
+          <Title order={3} ta="center" mb="lg" fw={400} c="dimmed">
+            Our Most Comprehensive Educational Program
+          </Title>
+          <Text size="lg" mb="lg">
+            Struggling with your dog's training or behavior? Let us give you and
+            your dog the skills you need to confidently navigate life together,
+            with a fully customized, positive reinforcement Camp + Coaching
+            program with Haley's Portland.
+          </Text>
+        </Box>
       </Paper>
 
-      {/* Life-Changing Experience Section */}
-      <Box mb="xl">
-        <Title order={2} mb="md">
-          A Life-Changing Learning Experience
-        </Title>
-        <Text mb="lg">
-          Forget about old-fashioned, boot camp-style dog training programs that
-          use questionable methods and include little (if any) instruction for
-          you! Haley's Portland Camp + Coaching programs combine the powerful
-          learning boost that comes through positive reinforcement board & train
-          camp, with the lasting behavior change that comes through private
-          coaching sessions. So you and your dog can live a happier life
-          together.
-        </Text>
-      </Box>
+      {/* Life-Changing Experience Section with Image */}
+      <Grid mb="xl" gutter="xl">
+        <Grid.Col span={{ base: 12, md: 7 }}>
+          <Box>
+            <Title order={2} mb="md">
+              A Life-Changing Learning Experience
+            </Title>
+            <Text mb="lg">
+              Forget about old-fashioned, boot camp-style dog training programs
+              that use questionable methods and include little (if any)
+              instruction for you! Haley's Portland Camp + Coaching programs
+              combine the powerful learning boost that comes through positive
+              reinforcement board & train camp, with the lasting behavior change
+              that comes through private coaching sessions. So you and your dog
+              can live a happier life together.
+            </Text>
+          </Box>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 5 }}>
+          <Image
+            src="/src/assets/fabian-gieske-unsplash.jpg"
+            radius="md"
+            alt="Happy dog being trained"
+            height={280}
+            fit="cover"
+            style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)" }}
+          />
+        </Grid.Col>
+      </Grid>
 
       {/* Programs Perfect For Section */}
-      <Paper p="xl" radius="md" withBorder mb="xl">
+      <Paper
+        p="xl"
+        radius="md"
+        withBorder
+        mb="xl"
+        bg="rgba(232, 241, 250, 0.5)"
+      >
         <Title order={2} mb="md">
           Camp + Coaching programs are perfect for:
         </Title>
         <Grid>
-          <Grid.Col span={6}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
             <List
               spacing="sm"
               size="md"
@@ -84,7 +118,7 @@ const Content: React.FC = () => {
               <List.Item>Coming when called</List.Item>
             </List>
           </Grid.Col>
-          <Grid.Col span={6}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
             <List
               spacing="sm"
               size="md"
@@ -223,7 +257,7 @@ const Content: React.FC = () => {
         </Accordion.Item>
       </Accordion>
 
-      {/* Pricing Info */}
+      {/* Pricing Info with trainer image */}
       <Paper
         p="xl"
         radius="md"
@@ -231,32 +265,123 @@ const Content: React.FC = () => {
         mb="xl"
         bg="rgba(245, 248, 250, 0.8)"
       >
-        <Text size="lg">
-          Haley's Portland's Camp + Coaching programs cost $1395/week and are
-          designed for dogs ages 5 months and older (if you have a dog younger
-          than 5 months, try Puppy Camp!). Dogs stay at our beautiful Portland
-          facility. Programs last between 1-4 weeks and include private coaching
-          sessions for you, plus lifetime access to free and/or low-cost alumni
-          classes.
-        </Text>
+        <Grid gutter="xl" align="center">
+          <Grid.Col span={{ base: 12, md: 8 }}>
+            <Text size="lg">
+              Haley's Portland's Camp + Coaching programs cost $1395/week and
+              are designed for dogs ages 5 months and older (if you have a dog
+              younger than 5 months, try Puppy Camp!). Dogs stay at our
+              beautiful Portland facility. Programs last between 1-4 weeks and
+              include private coaching sessions for you, plus lifetime access to
+              free and/or low-cost alumni classes.
+            </Text>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <Image
+              src="/src/assets/trainer-with-ball.png"
+              alt="Trainer with ball"
+              radius="md"
+              height={200}
+              fit="contain"
+            />
+          </Grid.Col>
+        </Grid>
       </Paper>
 
-      {/* CTA Section */}
-      <Box py="xl" mb="xl" ta="center">
-        <Title order={2} mb="lg">
-          Ready to Get Started?
-        </Title>
-        <Text mb="xl" size="lg">
-          Book a free discovery call with our Facility Program Manager, Vanesa
-          Vizuete, so we can learn more about whether Camp + Coaching might be
-          the right fit for you and your pup! Or, connect with us now at
-          971-358-8787 or portland@haleysdogtraining.com. Our client services
-          team would love to learn more about your dog and your goals, and help
-          you determine the best way to get started with us!
-        </Text>
-        <Button size="lg" radius="md" color="blue">
-          Book Your Free Discovery Call
-        </Button>
+      {/* Our Trainers Section - New! */}
+      <Title order={2} ta="center" mb="xl">
+        Meet Our Expert Trainers
+      </Title>
+      <Grid gutter="xl" mb="xl">
+        <Grid.Col span={{ base: 12, md: 6 }}>
+          <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
+            <Grid>
+              <Grid.Col span={5}>
+                <Image
+                  src="/src/assets/ftrainer.png"
+                  alt="Female trainer"
+                  radius="md"
+                  height={180}
+                  fit="cover"
+                />
+              </Grid.Col>
+              <Grid.Col span={7}>
+                <Title order={3} size="h4" mb="xs">
+                  Sarah Johnson
+                </Title>
+                <Text size="sm" mb="md" c="dimmed">
+                  Certified Dog Trainer
+                </Text>
+                <Text size="sm">
+                  Sarah specializes in behavior modification and has 8+ years of
+                  experience working with dogs of all breeds and sizes. Her
+                  patient approach helps anxious dogs build confidence.
+                </Text>
+              </Grid.Col>
+            </Grid>
+          </Card>
+        </Grid.Col>
+
+        <Grid.Col span={{ base: 12, md: 6 }}>
+          <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
+            <Grid>
+              <Grid.Col span={5}>
+                <Image
+                  src="/src/assets/mtrainer.png"
+                  alt="Male trainer"
+                  radius="md"
+                  height={180}
+                  fit="cover"
+                />
+              </Grid.Col>
+              <Grid.Col span={7}>
+                <Title order={3} size="h4" mb="xs">
+                  Michael Torres
+                </Title>
+                <Text size="sm" mb="md" c="dimmed">
+                  Senior Dog Behavior Specialist
+                </Text>
+                <Text size="sm">
+                  Michael has worked with over 500 dogs and specializes in leash
+                  reactivity and confidence building. His energy and enthusiasm
+                  make training sessions fun and effective.
+                </Text>
+              </Grid.Col>
+            </Grid>
+          </Card>
+        </Grid.Col>
+      </Grid>
+
+      {/* CTA Section with Remi Image */}
+      <Box py="xl" mb="xl">
+        <Grid gutter="xl" align="center">
+          <Grid.Col span={{ base: 12, md: 7 }}>
+            <Title order={2} mb="lg">
+              Ready to Get Started?
+            </Title>
+            <Text mb="xl" size="lg">
+              Book a free discovery call with our Facility Program Manager,
+              Vanesa Vizuete, so we can learn more about whether Camp + Coaching
+              might be the right fit for you and your pup! Or, connect with us
+              now at 971-358-8787 or portland@haleysdogtraining.com. Our client
+              services team would love to learn more about your dog and your
+              goals, and help you determine the best way to get started with us!
+            </Text>
+            <Button size="lg" radius="md" color="blue">
+              Book Your Free Discovery Call
+            </Button>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 5 }}>
+            <Image
+              src="/src/assets/Remi.jpeg"
+              radius="md"
+              alt="Remi the dog"
+              height={300}
+              fit="cover"
+              style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)" }}
+            />
+          </Grid.Col>
+        </Grid>
       </Box>
 
       <Divider my="xl" />
@@ -267,13 +392,14 @@ const Content: React.FC = () => {
       </Title>
 
       <Grid gutter="xl" mb="xl">
-        <Grid.Col span={6}>
+        <Grid.Col span={{ base: 12, md: 6 }}>
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/api/placeholder/800/450"
+                src="/src/assets/cookie-the-pom-unsplash.jpg"
                 height={200}
                 alt="Our facility"
+                fit="cover"
               />
             </Card.Section>
             <Box pt="md">
@@ -293,13 +419,14 @@ const Content: React.FC = () => {
           </Card>
         </Grid.Col>
 
-        <Grid.Col span={6}>
+        <Grid.Col span={{ base: 12, md: 6 }}>
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/api/placeholder/800/450"
+                src="/src/assets/fabian-gieske-unsplash.jpg"
                 height={200}
                 alt="Outdoor play yards"
+                fit="cover"
               />
             </Card.Section>
             <Box pt="md">
@@ -319,13 +446,14 @@ const Content: React.FC = () => {
           </Card>
         </Grid.Col>
 
-        <Grid.Col span={6}>
+        <Grid.Col span={{ base: 12, md: 6 }}>
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/api/placeholder/800/450"
+                src="/src/assets/Remi.jpeg"
                 height={200}
                 alt="Learning environment"
+                fit="cover"
               />
             </Card.Section>
             <Box pt="md">
@@ -343,13 +471,14 @@ const Content: React.FC = () => {
           </Card>
         </Grid.Col>
 
-        <Grid.Col span={6}>
+        <Grid.Col span={{ base: 12, md: 6 }}>
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/api/placeholder/800/450"
+                src="/src/assets/trainer-with-ball.png"
                 height={200}
                 alt="Real-life rooms"
+                fit="cover"
               />
             </Card.Section>
             <Box pt="md">
@@ -513,53 +642,62 @@ const Content: React.FC = () => {
         </Accordion.Item>
       </Accordion>
 
-      {/* Testimonials Section */}
-      <Title order={2} ta="center" mb="xl">
-        What Clients are Saying about Us:
-      </Title>
-
-      <Grid>
-        <Grid.Col span={6}>
-          <Paper p="lg" radius="md" withBorder mb="md">
-            <Group align="apart" mb="xs">
-              <Title order={4}>Lucy, Retha & Family</Title>
-              <ThemeIcon color="yellow" size={32} radius="xl">
-                <IconHeart size={18} />
-              </ThemeIcon>
-            </Group>
-            <Text>
-              "Super professional, effective, and EVERYTHING is all about
-              positive training, nothing negative. I love that. I also love that
-              Julie asked me what we wanted our Great Dane to do, and worked
-              specifically on those things They really listen to what each
-              family needs. I loved Julie so much, I got another Great Dane so
-              she could train her, too!! 😉 I couldn't be happier with the
-              results of BOTH dogs."
-            </Text>
-          </Paper>
+      {/* Testimonials Section with Dog Image */}
+      <Grid gutter={0} mb="xl">
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Image
+            src="/src/assets/cookie-the-pom-unsplash.jpg"
+            height={400}
+            alt="Happy dog"
+            fit="cover"
+            style={{ borderRadius: "0 0 0 16px" }}
+          />
         </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 8 }}>
+          <Paper p="xl" radius={0} h="100%" bg="rgba(232, 241, 250, 0.7)">
+            <Title order={2} ta="center" mb="xl">
+              What Clients are Saying about Us:
+            </Title>
+            <Grid>
+              <Grid.Col span={{ base: 12, md: 6 }}>
+                <Paper p="lg" radius="md" withBorder mb="md" bg="white">
+                  <Group align="apart" mb="xs">
+                    <Title order={4}>Lucy, Retha & Family</Title>
+                    <ThemeIcon color="yellow" size={32} radius="xl">
+                      <IconHeart size={18} />
+                    </ThemeIcon>
+                  </Group>
+                  <Text>
+                    "Super professional, effective, and EVERYTHING is all about
+                    positive training, nothing negative. I love that. I also
+                    love that Julie asked me what we wanted our Great Dane to
+                    do, and worked specifically on those things They really
+                    listen to what each family needs. I loved Julie so much, I
+                    got another Great Dane so she could train her, too!! 😉 I
+                    couldn't be happier with the results of BOTH dogs."
+                  </Text>
+                </Paper>
+              </Grid.Col>
 
-        <Grid.Col span={6}>
-          <Paper p="lg" radius="md" withBorder mb="md">
-            <Group align="apart" mb="xs">
-              <Title order={4}>Glitchie & Family</Title>
-              <ThemeIcon color="yellow" size={32} radius="xl">
-                <IconHeart size={18} />
-              </ThemeIcon>
-            </Group>
-            <Text>
-              "Jess Stone was absolutely fantastic with Glitchie (g), my little
-              rescue. G was a pandemic puppy and while incredibly playful, was
-              very nervous about encountering people and dogs in our housing
-              area, which manifested as aggression. Jess by was great; I watched
-              G pick up life-skills to help her diffuse her energy and anxieties
-              in amazing ways. She was patient, kind, but also vigilant while I
-              got used to the steep learning curve of dealing with a very
-              energetic and leash aggressive dog. It's been over 5 months since
-              we did training, and g has retained all the life-skills Jess
-              taught her. I look forward to booking follow-ups in the future. I
-              can't recommend Jess highly enough!"
-            </Text>
+              <Grid.Col span={{ base: 12, md: 6 }}>
+                <Paper p="lg" radius="md" withBorder mb="md" bg="white">
+                  <Group align="apart" mb="xs">
+                    <Title order={4}>Glitchie & Family</Title>
+                    <ThemeIcon color="yellow" size={32} radius="xl">
+                      <IconHeart size={18} />
+                    </ThemeIcon>
+                  </Group>
+                  <Text>
+                    "Jess Stone was absolutely fantastic with Glitchie (g), my
+                    little rescue. G was a pandemic puppy and while incredibly
+                    playful, was very nervous about encountering people and dogs
+                    in our housing area, which manifested as aggression. Jess
+                    was great; I watched G pick up life-skills to help her
+                    diffuse her energy and anxieties in amazing ways."
+                  </Text>
+                </Paper>
+              </Grid.Col>
+            </Grid>
           </Paper>
         </Grid.Col>
       </Grid>
