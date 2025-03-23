@@ -27,9 +27,7 @@ import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { IconCheck } from "@tabler/icons-react";
 
-// Styles could be defined here or in a separate file
-const PRIMARY_COLOR = "#3B82F6"; // A nice blue color
-
+const PRIMARY_COLOR = "#3B82F6";
 interface TrainingProgram {
   id: string;
   title: string;
@@ -624,23 +622,6 @@ const BoardAndTrainForm: React.FC = () => {
             )
           ) : null}
         </Group>
-      </Paper>
-
-      <Paper withBorder p="xl" radius="md" bg="blue.0">
-        <Title order={3} mb="md">
-          Why Choose Our Board & Train Program?
-        </Title>
-        <List icon={<IconCheck color={PRIMARY_COLOR} />} spacing="md">
-          <List.Item>
-            Professional trainers with over 15 years of experience
-          </List.Item>
-          <List.Item>
-            Customized training plans based on your dog's specific needs
-          </List.Item>
-          <List.Item>Comfortable, cage-free boarding environment</List.Item>
-          <List.Item>Daily updates with photos and progress reports</List.Item>
-          <List.Item>Take-home materials and follow-up support</List.Item>
-        </List>
       </Paper>
     </Container>
   );
