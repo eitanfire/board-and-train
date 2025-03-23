@@ -19,6 +19,14 @@ import {
 } from "@mantine/core";
 import { IconCheck, IconPaw, IconHeart } from "@tabler/icons-react";
 
+// Import all images
+import cookieThePom from "../assets/cookie-the-pom-unsplash.jpg";
+import fabianGieske from "../assets/fabian-gieske-unsplash.jpg";
+import trainerWithBall from "../assets/trainer-with-ball.png";
+import remiImage from "../assets/Remi.jpeg";
+import femaleTrainer from "../assets/ftrainer.png";
+import maleTrainer from "../assets/mtrainer.png";
+
 const Content: React.FC = () => {
   return (
     <Container size="xl" py="xl">
@@ -30,7 +38,7 @@ const Content: React.FC = () => {
         mb="xl"
         style={{
           position: "relative",
-          backgroundImage: 'url("/src/assets/cookie-the-pom-unsplash.jpg")',
+          backgroundImage: `url(${cookieThePom})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -77,7 +85,7 @@ const Content: React.FC = () => {
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
-            src="/src/assets/fabian-gieske-unsplash.jpg"
+            src={fabianGieske}
             radius="md"
             alt="Happy dog being trained"
             height={280}
@@ -278,7 +286,7 @@ const Content: React.FC = () => {
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 4 }}>
             <Image
-              src="/src/assets/trainer-with-ball.png"
+              src={trainerWithBall}
               alt="Trainer with ball"
               radius="md"
               height={200}
@@ -298,7 +306,7 @@ const Content: React.FC = () => {
             <Grid>
               <Grid.Col span={5}>
                 <Image
-                  src="/src/assets/ftrainer.png"
+                  src={femaleTrainer}
                   alt="Female trainer"
                   radius="md"
                   height={180}
@@ -327,7 +335,7 @@ const Content: React.FC = () => {
             <Grid>
               <Grid.Col span={5}>
                 <Image
-                  src="/src/assets/mtrainer.png"
+                  src={maleTrainer}
                   alt="Male trainer"
                   radius="md"
                   height={180}
@@ -373,7 +381,7 @@ const Content: React.FC = () => {
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 5 }}>
             <Image
-              src="/src/assets/Remi.jpeg"
+              src={remiImage}
               radius="md"
               alt="Remi the dog"
               height={300}
@@ -396,7 +404,7 @@ const Content: React.FC = () => {
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/src/assets/cookie-the-pom-unsplash.jpg"
+                src={cookieThePom}
                 height={200}
                 alt="Our facility"
                 fit="cover"
@@ -423,7 +431,7 @@ const Content: React.FC = () => {
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/src/assets/fabian-gieske-unsplash.jpg"
+                src={fabianGieske}
                 height={200}
                 alt="Outdoor play yards"
                 fit="cover"
@@ -450,7 +458,7 @@ const Content: React.FC = () => {
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/src/assets/Remi.jpeg"
+                src={remiImage}
                 height={200}
                 alt="Learning environment"
                 fit="cover"
@@ -475,7 +483,7 @@ const Content: React.FC = () => {
           <Card shadow="sm" p="lg" radius="md" withBorder h="100%">
             <Card.Section>
               <Image
-                src="/src/assets/trainer-with-ball.png"
+                src={trainerWithBall}
                 height={200}
                 alt="Real-life rooms"
                 fit="cover"
@@ -646,7 +654,7 @@ const Content: React.FC = () => {
       <Grid gutter={0} mb="xl">
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Image
-            src="/src/assets/cookie-the-pom-unsplash.jpg"
+            src={cookieThePom}
             height={400}
             alt="Happy dog"
             fit="cover"
