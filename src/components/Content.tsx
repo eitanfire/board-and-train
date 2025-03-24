@@ -18,64 +18,18 @@ import {
   Overlay,
 } from "@mantine/core";
 import { IconCheck, IconPaw, IconHeart } from "@tabler/icons-react";
-
-// Import all images
 import cookieThePom from "../assets/cookie-the-pom-unsplash.jpg";
 import fabianGieske from "../assets/fabian-gieske-unsplash.jpg";
 import trainerWithBall from "../assets/trainer-with-ball.png";
 import remiImage from "../assets/Remi.jpeg";
 import femaleTrainer from "../assets/ftrainer.png";
 import maleTrainer from "../assets/mtrainer.png";
+import Hero from "./Hero";
 
 const Content: React.FC = () => {
   return (
     <Container size="xl" py="xl">
-      {/* Hero Section with Background Image */}
-      <Box
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100vh",
-          overflow: "hidden",
-        }}
-      >
-        <Paper
-          radius="md"
-          p="xl"
-          withBorder
-          style={{
-            position: "relative",
-            width: "100%", // Ensures no overflow beyond viewport width
-            height: "100%",
-            backgroundImage: `url(${fabianGieske})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <Overlay
-            gradient="linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%)"
-            opacity={0.85}
-            zIndex={0}
-            radius="md"
-          />
-          <Box style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-            <Title order={1} ta="center" mb="md">
-              Board & Train Camp + Coaching
-            </Title>
-            <Title order={3} ta="center" mb="lg" fw={400} c="dimmed">
-              Our Most Comprehensive Educational Program
-            </Title>
-            <Text size="lg" mb="lg">
-              Struggling with your dog's training or behavior? Let us give you
-              and your dog the skills you need to confidently navigate life
-              together, with a fully customized, positive reinforcement Camp +
-              Coaching program with Haley's Longmont.
-            </Text>
-          </Box>
-        </Paper>
-      </Box>
-
+      <Hero />
       {/* Life-Changing Experience Section with Image */}
       <Box mt="xl">
         {" "}
