@@ -7,10 +7,10 @@ import Content from "./components/Content";
 
 export default function App() {
   return (
-    <MantineProvider theme={theme}>
-      <Content />
-      <AboutUs />
-      <BoardAndTrainForm />
-    </MantineProvider>
+      <MantineProvider theme={theme}>
+        <Content />
+        <AboutUs />
+        <BoardAndTrainForm />
+      </MantineProvider>
   );
 }
