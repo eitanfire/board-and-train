@@ -38,7 +38,7 @@ const Content: React.FC = () => {
         mb="xl"
         style={{
           position: "relative",
-          backgroundImage: `url(${cookieThePom})`,
+          backgroundImage: `url(${fabianGieske})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -85,7 +85,7 @@ const Content: React.FC = () => {
         </Grid.Col>
         <Grid.Col span={{ base: 12, md: 5 }}>
           <Image
-            src={fabianGieske}
+            src={femaleTrainer}
             radius="md"
             alt="Happy dog being trained"
             height={280}
@@ -412,10 +412,10 @@ const Content: React.FC = () => {
             </Card.Section>
             <Box pt="md">
               <Title order={3} mb="sm">
-                Located in Longmont, OR
+                Located in Longmont, CO
               </Title>
               <Text>
-                Located in the St. John's neighborhood of Longmont, OR, our
+                Located in the St. John's neighborhood of Longmont, CO, our
                 Behavioral Health Facility is home to both Haley's Longmont and
                 the Animal Behavior Clinic of Longmont, which gives access to
                 veterinary behaviorists, certified veterinary technicians,
