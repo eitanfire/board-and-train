@@ -31,69 +31,84 @@ const Content: React.FC = () => {
   return (
     <Container size="xl" py="xl">
       {/* Hero Section with Background Image */}
-      <Paper
-        radius="md"
-        p="xl"
-        withBorder
-        mb="xl"
+      <Box
         style={{
           position: "relative",
-          backgroundImage: `url(${fabianGieske})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          width: "100%",
+          height: "100vh",
+          overflow: "hidden",
         }}
       >
-        <Overlay
-          gradient="linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%)"
-          opacity={0.85}
-          zIndex={0}
+        <Paper
           radius="md"
-        />
-        <Box style={{ position: "relative", zIndex: 1 }}>
-          <Title order={1} ta="center" mb="md">
-            Board & Train Camp + Coaching
-          </Title>
-          <Title order={3} ta="center" mb="lg" fw={400} c="dimmed">
-            Our Most Comprehensive Educational Program
-          </Title>
-          <Text size="lg" mb="lg">
-            Struggling with your dog's training or behavior? Let us give you and
-            your dog the skills you need to confidently navigate life together,
-            with a fully customized, positive reinforcement Camp + Coaching
-            program with Haley's Longmont.
-          </Text>
-        </Box>
-      </Paper>
-
-      {/* Life-Changing Experience Section with Image */}
-      <Grid mb="xl" gutter="xl">
-        <Grid.Col span={{ base: 12, md: 7 }}>
-          <Box>
-            <Title order={2} mb="md">
-              A Life-Changing Learning Experience
+          p="xl"
+          withBorder
+          style={{
+            position: "relative",
+            width: "100%", // Ensures no overflow beyond viewport width
+            height: "100%",
+            backgroundImage: `url(${fabianGieske})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <Overlay
+            gradient="linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%)"
+            opacity={0.85}
+            zIndex={0}
+            radius="md"
+          />
+          <Box style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+            <Title order={1} ta="center" mb="md">
+              Board & Train Camp + Coaching
             </Title>
-            <Text mb="lg">
-              Forget about old-fashioned, boot camp-style dog training programs
-              that use questionable methods and include little (if any)
-              instruction for you! Haley's Longmont Camp + Coaching programs
-              combine the powerful learning boost that comes through positive
-              reinforcement board & train camp, with the lasting behavior change
-              that comes through private coaching sessions. So you and your dog
-              can live a happier life together.
+            <Title order={3} ta="center" mb="lg" fw={400} c="dimmed">
+              Our Most Comprehensive Educational Program
+            </Title>
+            <Text size="lg" mb="lg">
+              Struggling with your dog's training or behavior? Let us give you
+              and your dog the skills you need to confidently navigate life
+              together, with a fully customized, positive reinforcement Camp +
+              Coaching program with Haley's Longmont.
             </Text>
           </Box>
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 5 }}>
-          <Image
-            src={femaleTrainer}
-            radius="md"
-            alt="Happy dog being trained"
-            height={280}
-            fit="cover"
-            style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)" }}
-          />
-        </Grid.Col>
-      </Grid>
+        </Paper>
+      </Box>
+
+      {/* Life-Changing Experience Section with Image */}
+      <Box mt="xl">
+        {" "}
+        {/* This ensures the content starts below */}
+        <Grid mb="xl" gutter="xl">
+          <Grid.Col span={{ base: 12, md: 7 }}>
+            <Box>
+              <Title order={2} mb="md">
+                A Life-Changing Learning Experience
+              </Title>
+              <Text mb="lg">
+                Forget about old-fashioned, boot camp-style dog training
+                programs that use questionable methods and include little (if
+                any) instruction for you! Haley's Longmont Camp + Coaching
+                programs combine the powerful learning boost that comes through
+                positive reinforcement board & train camp, with the lasting
+                behavior change that comes through private coaching sessions. So
+                you and your dog can live a happier life together.
+              </Text>
+            </Box>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 5 }}>
+            <Image
+              src={femaleTrainer}
+              radius="md"
+              alt="Happy dog being trained"
+              height={280}
+              fit="cover"
+              style={{ boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)" }}
+            />
+          </Grid.Col>
+        </Grid>
+      </Box>
 
       {/* Programs Perfect For Section */}
       <Paper
