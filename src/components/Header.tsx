@@ -6,7 +6,7 @@ const AhimsaHeader = () => {
     <Container size="lg" py={20}>
       <Flex
         justify="space-between"
-        align="center"
+        align="end"
         style={{
           borderBottom: "1px solid #8a6e60",
           paddingBottom: "15px",
@@ -41,6 +41,7 @@ const AhimsaHeader = () => {
 
         <Flex
           gap="md"
+          align="end"
           style={{
             fontFamily: '"Habibi", serif',
             fontWeight: 400,
