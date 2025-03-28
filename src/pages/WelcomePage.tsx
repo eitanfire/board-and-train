@@ -96,7 +96,7 @@ const HomePage: React.FC = () => {
                   fontSize: "2.5rem",
                 }}
               >
-                for dog owners who want more than just instruction.
+                for dog owners who want more than <em>just</em> instruction.
               </Text>
               &nbsp;
               <Text
@@ -153,8 +153,8 @@ const HomePage: React.FC = () => {
                   fontSize: "2.5rem",
                 }}
               >
-                Rest assured, knowing your dog will learn new things without
-                experiencing any pain or fear.
+                Rest assured, knowing your dog will <em>learn new things </em>
+                without experiencing any pain or fear.
               </Text>
             </Box>
           </Box>
