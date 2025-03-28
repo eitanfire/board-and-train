@@ -15,7 +15,6 @@ import {
   Space,
   Divider,
   Accordion,
-  Overlay,
 } from "@mantine/core";
 import { IconCheck, IconPaw, IconHeart } from "@tabler/icons-react";
 import cookieThePom from "../assets/cookie-the-pom-unsplash.jpg";
