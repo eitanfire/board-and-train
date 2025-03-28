@@ -90,9 +90,10 @@ const HomePage: React.FC = () => {
               <Text
                 size="lg"
                 style={{
+                  textIndent: "70px",
                   lineHeight: "1.5",
                   marginBottom: "10px",
-                  fontSize: "2.5rem", // Explicitly set larger font size
+                  fontSize: "2.5rem",
                 }}
               >
                 for dog owners who want more than just instruction.
@@ -104,7 +105,7 @@ const HomePage: React.FC = () => {
                 style={{
                   lineHeight: "1.5",
                   marginBottom: "10px",
-                  fontSize: "2.5rem", // Explicitly set larger font size
+                  fontSize: "2.5rem",
                 }}
               >
                 Get to know your dog better
@@ -113,14 +114,14 @@ const HomePage: React.FC = () => {
                 style={{
                   whiteSpace: "nowrap",
                   display: "inline-block",
-                  fontSize: "2.5rem", // Increased font size
+                  fontSize: "2.5rem",
                 }}
               >
                 <Text
                   style={{
                     whiteSpace: "nowrap",
                     display: "inline-block",
-                    fontSize: "2.5rem", // Increased font size
+                    fontSize: "2.5rem",
                   }}
                 >
                   with
@@ -129,7 +130,7 @@ const HomePage: React.FC = () => {
                   td="underline"
                   style={{
                     display: "inline-block",
-                    fontSize: "2.5rem", // Increased font size
+                    fontSize: "2.5rem",
                   }}
                 >
                   full-time support
@@ -137,7 +138,7 @@ const HomePage: React.FC = () => {
                 <Text
                   style={{
                     display: "inline-block",
-                    fontSize: "2.5rem", // Increased font size
+                    fontSize: "2.5rem",
                   }}
                 >
                   from a professional trainer.
@@ -148,7 +149,8 @@ const HomePage: React.FC = () => {
                 size="lg"
                 style={{
                   lineHeight: "1.5",
-                  fontSize: "2.5rem", // Increased font size
+                  marginBottom: "10px",
+                  fontSize: "2.5rem",
                 }}
               >
                 Rest assured, knowing your dog will learn new things without
@@ -174,7 +176,7 @@ const HomePage: React.FC = () => {
                 fontSize: "2.75rem",
                 color: "#8a6e60",
                 lineHeight: "1.2",
-                marginRight: "0.5rem", // Add a small space between texts
+                marginRight: "0.5rem",
               }}
             >
               Hello there,
