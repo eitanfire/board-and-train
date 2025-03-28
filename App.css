@@ -1,9 +1,7 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling globally */
+  overflow-x: hidden;
   width: 100vw;
    font-family: "Habibi", serif;
   font-weight: 400;
-  font-style: normal;
+  color: #8a6e60;
 }
