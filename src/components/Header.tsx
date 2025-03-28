@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Flex, Title, Text, Anchor } from "@mantine/core";
 
 const AhimsaHeader = () => {
@@ -16,7 +15,7 @@ const AhimsaHeader = () => {
         <Flex direction="column">
           <Title
             order={1}
-            size={24}
+            size={30}
             style={{
               color: "#8a6e60",
               marginBottom: 0,
@@ -27,7 +26,7 @@ const AhimsaHeader = () => {
             Ahimsa House of Dogs
           </Title>
           <Text
-            size="sm"
+            size="xl"
             style={{
               color: "#8a6e60",
               marginTop: 5,
@@ -49,6 +48,7 @@ const AhimsaHeader = () => {
         >
           <Anchor
             href="/"
+            size="lg"
             style={{
               color: "#8a6e60",
               textDecoration: "none",
@@ -60,6 +60,7 @@ const AhimsaHeader = () => {
           </Anchor>
           <Anchor
             href="/about"
+            size="lg"
             style={{
               color: "#8a6e60",
               textDecoration: "none",
@@ -71,6 +72,7 @@ const AhimsaHeader = () => {
           </Anchor>
           <Anchor
             href="/contact"
+            size="lg"
             style={{
               color: "#8a6e60",
               textDecoration: "none",
