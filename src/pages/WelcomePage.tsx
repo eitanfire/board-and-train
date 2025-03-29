@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Grid, Text, Title, Image, Box } from "@mantine/core";
-// Removed the unused clamp import from @mantine/hooks
+import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png"
 
-const HomePage: React.FC = () => {
+const WelcomePage: React.FC = () => {
   return (
     <Container style={{ paddingTop: 50, position: "relative" }}>
       <Grid gutter="lg">
@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
             }}
           >
             <Image
-              src="/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png"
+              src={DogDoodle}
               alt="Dog Illustration"
               fit="contain"
               width="100%"
@@ -201,4 +201,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default WelcomePage;
