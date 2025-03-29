@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Grid, Text, Title, Image, Box } from "@mantine/core";
+// Removed the unused clamp import from @mantine/hooks
 
 const HomePage: React.FC = () => {
   return (
@@ -10,9 +11,9 @@ const HomePage: React.FC = () => {
             <Text
               ta="right"
               style={{
-                fontSize: "3rem",
+                fontSize: "clamp(2.25rem, 3vw, 3.25rem)",
                 fontWeight: 2000,
-                color: "#8a6e60", // Brownish-Green
+                color: "#8a6e60",
                 lineHeight: "1.2",
               }}
             >
@@ -21,7 +22,7 @@ const HomePage: React.FC = () => {
             <Text
               ta="right"
               style={{
-                fontSize: "3rem",
+                fontSize: "clamp(2.25rem, 3vw, 3.25rem)",
                 fontWeight: 2000,
                 color: "#8a6e60",
                 lineHeight: "1.2",
@@ -34,7 +35,7 @@ const HomePage: React.FC = () => {
         <Grid.Col span={6}>
           <Text
             style={{
-              fontSize: "6.75rem",
+              fontSize: "clamp(4rem, 6vw, 6.75rem)",
               fontWeight: 2000,
               color: "#8a6e60",
               lineHeight: "1.2",
@@ -79,7 +80,7 @@ const HomePage: React.FC = () => {
                 lineHeight: "1.2",
                 marginBottom: "10px",
                 fontWeight: 400,
-                fontSize: "3rem",
+                fontSize: "clamp(2rem, 2.5vw, 3rem)",
               }}
             >
               Real Support
@@ -93,7 +94,7 @@ const HomePage: React.FC = () => {
                   textIndent: "70px",
                   lineHeight: "1.5",
                   marginBottom: "10px",
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
                 for dog owners who want more than <em>just</em> instruction.
@@ -105,7 +106,7 @@ const HomePage: React.FC = () => {
                 style={{
                   lineHeight: "1.5",
                   marginBottom: "10px",
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
                 Get to know your dog better
@@ -114,14 +115,14 @@ const HomePage: React.FC = () => {
                 style={{
                   whiteSpace: "nowrap",
                   display: "inline-block",
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
                 <Text
                   style={{
                     whiteSpace: "nowrap",
                     display: "inline-block",
-                    fontSize: "2.5rem",
+                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                   }}
                 >
                   with
@@ -130,7 +131,7 @@ const HomePage: React.FC = () => {
                   td="underline"
                   style={{
                     display: "inline-block",
-                    fontSize: "2.5rem",
+                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                   }}
                 >
                   full-time support
@@ -138,7 +139,7 @@ const HomePage: React.FC = () => {
                 <Text
                   style={{
                     display: "inline-block",
-                    fontSize: "2.5rem",
+                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                   }}
                 >
                   from a professional trainer.
@@ -150,7 +151,7 @@ const HomePage: React.FC = () => {
                 style={{
                   lineHeight: "1.5",
                   marginBottom: "10px",
-                  fontSize: "2.5rem",
+                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
                 Rest assured, knowing your dog will <em>learn new things </em>
@@ -165,7 +166,7 @@ const HomePage: React.FC = () => {
               display: "flex",
               justifyContent: "flex-end",
               alignItems: "center",
-              fontSize: "2.5rem",
+              fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
             }}
           >
             <Text
@@ -173,7 +174,7 @@ const HomePage: React.FC = () => {
               style={{
                 zIndex: 2,
                 fontWeight: 500,
-                fontSize: "2.75rem",
+                fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
                 color: "#8a6e60",
                 lineHeight: "1.2",
                 marginRight: "0.5rem",
@@ -186,7 +187,7 @@ const HomePage: React.FC = () => {
               style={{
                 zIndex: 2,
                 fontWeight: 500,
-                fontSize: "2.75rem",
+                fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
                 color: "#8a6e60",
                 lineHeight: "1.2",
               }}
