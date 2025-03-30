@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Text, Title, Image, Box } from "@mantine/core";
-import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png"
+import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
 
 const WelcomePage: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const WelcomePage: React.FC = () => {
               Communicate.
             </Text>
             <Text
-              ta="right"
+              ta="end"
               style={{
                 fontSize: "clamp(2.25rem, 3vw, 3.25rem)",
                 fontWeight: 2000,
@@ -35,7 +35,7 @@ const WelcomePage: React.FC = () => {
         <Grid.Col span={6}>
           <Text
             style={{
-              fontSize: "clamp(4rem, 6vw, 6.75rem)",
+              fontSize: "clamp(5rem, 6.75dvw, 7.25rem)",
               fontWeight: 2000,
               color: "#8a6e60",
               lineHeight: "1.2",
@@ -80,7 +80,7 @@ const WelcomePage: React.FC = () => {
                 lineHeight: "1.2",
                 marginBottom: "10px",
                 fontWeight: 400,
-                fontSize: "clamp(2rem, 2.5vw, 3rem)",
+                fontSize: "clamp(2.75rem, 3vw, 3.25rem)",
               }}
             >
               Real Support
@@ -105,7 +105,6 @@ const WelcomePage: React.FC = () => {
                 size="lg"
                 style={{
                   lineHeight: "1.5",
-                  marginBottom: "10px",
                   fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
@@ -113,54 +112,64 @@ const WelcomePage: React.FC = () => {
               </Text>
               <Box
                 style={{
-                  whiteSpace: "nowrap",
-                  display: "inline-block",
-                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
+                  maxWidth: "100%",
                 }}
               >
-                <Text
+                <Box
                   style={{
-                    whiteSpace: "nowrap",
-                    display: "inline-block",
+                    display: "block", // Changed from inline-block to block
+                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
+                    marginBottom: "1rem", // Add spacing between blocks
+                  }}
+                >
+                  <Text
+                    style={{
+                      display: "inline",
+                      fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
+                    }}
+                  >
+                    with
+                  </Text>{" "}
+                  <Text
+                    td="underline"
+                    style={{
+                      display: "inline",
+                      fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
+                    }}
+                  >
+                    full-time support
+                  </Text>{" "}
+                  <Text
+                    style={{
+                      display: "inline",
+                      fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
+                      wordBreak: "break-word",
+                      hyphens: "auto",
+                      WebkitHyphens: "auto",
+                      msHyphens: "auto",
+                      overflow: "visible",
+                      lineHeight: 1.3,
+                      lang: "en",
+                    }}
+                  >
+                    from a professional trainer.
+                  </Text>
+                </Box>
+                &nbsp;
+                <Text
+                  size="lg"
+                  style={{
+                    display: "block", // Ensure this is a block element
+                    lineHeight: "1.5",
                     fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                   }}
                 >
-                  with
-                </Text>{" "}
-                <Text
-                  td="underline"
-                  style={{
-                    display: "inline-block",
-                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
-                  }}
-                >
-                  full-time support
-                </Text>{" "}
-                <Text
-                  style={{
-                    display: "inline-block",
-                    fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
-                  }}
-                >
-                  from a professional trainer.
+                  Rest assured, knowing your dog will <em>learn new things </em>
+                  without experiencing any pain or fear.
                 </Text>
               </Box>
-              &nbsp;
-              <Text
-                size="lg"
-                style={{
-                  lineHeight: "1.5",
-                  marginBottom: "10px",
-                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
-                }}
-              >
-                Rest assured, knowing your dog will <em>learn new things </em>
-                without experiencing any pain or fear.
-              </Text>
             </Box>
           </Box>
-        </Grid.Col>
-        <Grid.Col>
           <Box
             style={{
               display: "flex",
@@ -169,9 +178,11 @@ const WelcomePage: React.FC = () => {
               fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
             }}
           >
+            &nbsp;
             <Text
               size="lg"
               style={{
+                marginTop: "20px",
                 zIndex: 2,
                 fontWeight: 500,
                 fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
@@ -186,6 +197,7 @@ const WelcomePage: React.FC = () => {
               fs="italic"
               style={{
                 zIndex: 2,
+                marginTop: "20px",
                 fontWeight: 500,
                 fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
                 color: "#8a6e60",

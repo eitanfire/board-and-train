@@ -35,7 +35,7 @@ const AhimsaHeader = () => {
               display: "block", // Makes the text a block element
             }}
           >
-            A Positive-Only <br className="mantine-hidden-from-md" /> Board &
+            A Positive-Only <br className="mantine-hidden-from-xs" /> Board &
             Train Program.
           </Text>
         </Flex>
