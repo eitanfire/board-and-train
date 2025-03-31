@@ -12,8 +12,7 @@ import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawin
 
 const WelcomePage: React.FC = () => {
   return (
-    <AppShell
-      c="customColor.5">
+    <AppShell c="customColor.5" h="100vh">
       <Container style={{ paddingTop: 50, position: "relative" }}>
         <Grid gutter="lg">
           <Grid.Col span={6}>

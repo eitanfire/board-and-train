@@ -1,4 +1,5 @@
-import { Container, Flex, Title, Text, Anchor, AppShell } from "@mantine/core";
+import { Link } from "@tanstack/react-router";
+import { Container, Flex, Title, Text, AppShell } from "@mantine/core";
 
 const AhimsaHeader = () => {
   return (
@@ -31,7 +32,7 @@ const AhimsaHeader = () => {
                 fontFamily: "Habibi, serif",
                 fontWeight: 400,
                 fontSize: "clamp(16px, 2vw, 24px)",
-                display: "block", // Makes the text a block element
+                display: "block",
               }}
             >
               A Positive-Only <br className="mantine-hidden-from-xs" /> Board &
@@ -48,15 +49,14 @@ const AhimsaHeader = () => {
             }}
           >
             {[
-              { href: "/", label: "Welcome" },
-              { href: "/about", label: "About" },
-              { href: "/contact", label: "Contact" },
-            ].map(({ href, label }) => (
-              <Anchor
-              c={"customColor.1"
-                }
-                key={href}
-                href={href}
+              { to: "/", label: "Welcome" },
+              { to: "/about", label: "About" },
+              { to: "/contact", label: "Contact" },
+            ].map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className="text-customColor-1"
                 style={{
                   textDecoration: "none",
                   fontFamily: "Habibi, serif",
@@ -65,7 +65,7 @@ const AhimsaHeader = () => {
                 }}
               >
                 {label}
-              </Anchor>
+              </Link>
             ))}
           </Flex>
         </Flex>

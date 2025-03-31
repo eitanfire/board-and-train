@@ -22,6 +22,7 @@ import {
   Paper,
   Stack,
 } from "@mantine/core";
+
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
@@ -200,7 +201,7 @@ const BoardAndTrainForm: React.FC = () => {
               </Card.Section>
 
               <Group justify="space-between" mt="md" mb="xs">
-                <Text fw={500} fz="lg">
+                <Text fw={500} size="lg">
                   {program.title}
                 </Text>
                 <Text c={PRIMARY_COLOR} fw={700}>
@@ -208,11 +209,11 @@ const BoardAndTrainForm: React.FC = () => {
                 </Text>
               </Group>
 
-              <Text fz="sm" c="dimmed">
+              <Text size="sm" c="dimmed">
                 {program.description}
               </Text>
 
-              <Text mt="sm" fz="sm">
+              <Text mt="sm" size="sm">
                 Duration: {program.duration}
               </Text>
 
@@ -434,7 +435,7 @@ const BoardAndTrainForm: React.FC = () => {
                 Review Your Application
               </Title>
 
-              <Stack gap={8}>
+              <Stack gap="md">
                 <Paper withBorder p="md">
                   <Title order={4} mb="sm">
                     Owner Information
