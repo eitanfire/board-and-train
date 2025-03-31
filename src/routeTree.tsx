@@ -1,6 +1,6 @@
 import { createRootRoute, createRoute } from "@tanstack/react-router";
 import WelcomePage from "./routes/WelcomePage";
-import AhimsaHeader from "./components/Header"; // Import the AhimsaHeader component
+import ShantiHeader from "./components/ShantiHeader"; // Import the ShantiHeader component
 import { Outlet } from "@tanstack/react-router";
 import BoardAndTrainForm from "./routes/BoardAndTrainForm";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"; // Import the devtools
@@ -9,9 +9,9 @@ import AboutPage from "./routes/AboutPage";
 export const rootRoute = createRootRoute({
   component: () => (
     <>
-      <AhimsaHeader />
+      <ShantiHeader />
       <Outlet />
-      <TanStackRouterDevtools />
+      <TanStackRouterDevtools initialIsOpen={false} />
     </>
   ),
 });
