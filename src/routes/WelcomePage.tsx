@@ -8,11 +8,14 @@ import {
   Box,
   AppShell
 } from "@mantine/core";
-import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
+// import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
+import HoliDog from "/src/assets/holi-dog.png";
+import Golden from "/src/assets/golden.jpeg";
+import GoldenWithMarigolds from "/src/assets/golden-with-marigolds.jpeg";
 
 const WelcomePage: React.FC = () => {
   return (
-    <AppShell c="customColor.5" h="100vh">
+    <AppShell c="customColor.6" h="100vh">
       <Container style={{ paddingTop: 50, position: "relative" }}>
         <Grid gutter="lg">
           <Grid.Col span={6}>
@@ -52,25 +55,25 @@ const WelcomePage: React.FC = () => {
           </Grid.Col>
 
           <Grid.Col style={{ position: "relative", minHeight: "500px" }}>
-            <Box
+            {/* <Box
               style={{
                 position: "absolute",
-                top: 0,
+                // bottom: 2,
                 right: 0,
-                width: "100%",
-                height: "100%",
-                opacity: 0.2, // Light opacity for readability
+                // width: "100%",
+                // height: "100%",
+                opacity: 0.35,
                 zIndex: 1,
               }}
             >
               <Image
-                src={DogDoodle}
+                src={GoldenWithMarigolds}
                 alt="Dog Illustration"
                 fit="contain"
-                width="100%"
-                height="100%"
+                // width="100%"
+                // height="100%"
               />
-            </Box>
+            </Box> */}
 
             <Box
               style={{
@@ -92,7 +95,6 @@ const WelcomePage: React.FC = () => {
               </Title>
               <Box style={{ fontWeight: 500, fontSize: "2rem" }}>
                 {" "}
-                {/* Increased from 2.75rem to 3rem */}
                 <Text
                   size="lg"
                   style={{
@@ -198,6 +200,25 @@ const WelcomePage: React.FC = () => {
               >
                 Hello there,
               </Text>
+              {/* <Box
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  // width: "100%",
+                  // height: "100%",
+                  opacity: 0.35,
+                  zIndex: -1,
+                }}
+              >
+                <Image
+                  src={Golden}
+                  alt="Dog Illustration"
+                  fit="contain"
+                  width="100%"
+                  height="100%"
+                />
+              </Box> */}
               <Text
                 fs="italic"
                 style={{

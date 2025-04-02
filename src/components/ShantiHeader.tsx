@@ -3,7 +3,7 @@ import { Container, Flex, Title, Text, AppShell } from "@mantine/core";
 
 const ShantiHeader = () => {
   return (
-    <AppShell c="customColor.5">
+    <AppShell c="customColor.6">
       <Container size="100%" px="md" py={20}>
         <Flex
           justify="space-between"
