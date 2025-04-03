@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Container, Flex, Title, Text, AppShell } from "@mantine/core";
+import { Container, Flex, Title, AppShell } from "@mantine/core";
 
 const ShantiHeader = () => {
   return (
@@ -56,7 +56,8 @@ const ShantiHeader = () => {
             ))}
           </Flex>
         </Flex>
-        A positive reinforcement board and train program for dogs.
+        A positive reinforcement board & train program for dogs… and their
+        people.
       </Container>
     </AppShell>
   );
