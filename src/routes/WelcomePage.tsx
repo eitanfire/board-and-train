@@ -9,9 +9,9 @@ import {
   AppShell
 } from "@mantine/core";
 // import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
-import HoliDog from "/src/assets/holi-dog.png";
-import Golden from "/src/assets/golden.jpeg";
-import GoldenWithMarigolds from "/src/assets/golden-with-marigolds.jpeg";
+// import HoliDog from "/src/assets/holi-dog.png";
+// import Golden from "/src/assets/golden.jpeg";
+// import GoldenWithMarigolds from "/src/assets/golden-with-marigolds.jpeg";
 
 const WelcomePage: React.FC = () => {
   return (
@@ -108,6 +108,32 @@ const WelcomePage: React.FC = () => {
                 </Text>
                 &nbsp;
                 <Text
+                  style={{
+                    textIndent: "70px",
+                    lineHeight: "1.5",
+                    marginBottom: "10px",
+                    fontSize: "clamp(1.25rem, 1.5vw, 1.75rem)",
+                  }}
+                >
+                  I used to think boarding and training your dog was a copout.
+                  How will you bond with your dog if you outsource all the
+                  training? Owners need to understand the training process in
+                  order to understand their dogs. It is our responsibility as
+                  dog lovers to learn how dogs communicate and grow. There is
+                  some truth to these ideals, but/and… Over the years my own
+                  life got a lot more complicated. I got married, started a
+                  family, and found myself with FAR less time to dedicate to my
+                  animals. Becoming a parent made me rethink just about
+                  everything in life, including the board and train model of dog
+                  training. Just as it takes a village to raise a child, why
+                  shouldn’t it take a village to train a dog? I started to see
+                  the board and train model as a form of deep support for people
+                  who might be struggling (because the struggle can be real) and
+                  who are also completely dedicated to their pet’s well-being. I
+                  have designed my stay & train program (aka board & train)
+                </Text>
+                &nbsp;
+                <Text
                   ta="right"
                   size="lg"
                   style={{
@@ -115,13 +141,7 @@ const WelcomePage: React.FC = () => {
                     fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                   }}
                 >
-                  Get to know your dog better
-                </Text>
-                <Box
-                  style={{
-                    maxWidth: "100%",
-                  }}
-                >
+                  Get to know your dog better{" "}
                   <Box
                     style={{
                       display: "block", // Changed from inline-block to block
@@ -163,6 +183,25 @@ const WelcomePage: React.FC = () => {
                     </Text>
                   </Box>
                   &nbsp;
+                </Text>
+                &nbsp;
+                <Text
+                  style={{
+                    textIndent: "70px",
+                    lineHeight: "1.5",
+                    marginBottom: "10px",
+                    fontSize: "clamp(1.25rem, 1.5vw, 1.75rem)",
+                  }}
+                >
+                  I’ve already spent years and dollars developing my knowledge
+                  and skills as a dog trainer, so why should you?
+                </Text>
+                &nbsp;
+                <Box
+                  style={{
+                    maxWidth: "100%",
+                  }}
+                >
                   <Text
                     size="lg"
                     style={{
@@ -186,7 +225,24 @@ const WelcomePage: React.FC = () => {
                 fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
               }}
             >
-              &nbsp;
+              &nbsp; &nbsp;
+              <Text
+                style={{
+                  textIndent: "70px",
+                  lineHeight: "1.5",
+                  marginBottom: "10px",
+                  fontSize: "clamp(1.25rem, 1.5vw, 1.75rem)",
+                }}
+              >
+                My top priority for dogs in my care is to minimize stress and to
+                never ever create any new fear or anxiety (understanding that
+                some dogs come to me with existing fears and anxieties). I
+                accomplish this do-no-harm approach by adhering to the
+                following: I only use positive reinforcement training methods—
+                only. Dogs stay in my quiet and calm home training environment.
+                We engage in tons of enrichment and play.
+              </Text>
+              &nbsp;{" "}
               <Text
                 size="lg"
                 style={{
