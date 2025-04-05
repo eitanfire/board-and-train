@@ -4,9 +4,9 @@ import {
   Grid,
   Text,
   Title,
-  Image,
+  List,
   Box,
-  AppShell
+  AppShell,
 } from "@mantine/core";
 // import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
 // import HoliDog from "/src/assets/holi-dog.png";
@@ -182,7 +182,6 @@ const WelcomePage: React.FC = () => {
                       from a professional trainer.
                     </Text>
                   </Box>
-                  &nbsp;
                 </Text>
                 &nbsp;
                 <Text
@@ -226,67 +225,84 @@ const WelcomePage: React.FC = () => {
               }}
             >
               &nbsp; &nbsp;
-              <Text
+              {/* Change the parent Box to use column direction */}
+              <Box
                 style={{
-                  textIndent: "70px",
-                  lineHeight: "1.5",
-                  marginBottom: "10px",
-                  fontSize: "clamp(1.25rem, 1.5vw, 1.75rem)",
+                  display: "flex",
+                  flexDirection: "column", // This is the key change
+                  alignItems: "flex-start",
+                  fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
               >
-                My top priority for dogs in my care is to minimize stress and to
-                never ever create any new fear or anxiety (understanding that
-                some dogs come to me with existing fears and anxieties). I
-                accomplish this do-no-harm approach by adhering to the
-                following: I only use positive reinforcement training methods—
-                only. Dogs stay in my quiet and calm home training environment.
-                We engage in tons of enrichment and play.
-              </Text>
-              &nbsp;{" "}
-              <Text
-                size="lg"
-                style={{
-                  marginTop: "20px",
-                  zIndex: 2,
-                  fontWeight: 500,
-                  fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
-                  lineHeight: "1.2",
-                  marginRight: "0.5rem",
-                }}
-              >
-                Hello there,
-              </Text>
-              {/* <Box
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  // width: "100%",
-                  // height: "100%",
-                  opacity: 0.35,
-                  zIndex: -1,
-                }}
-              >
-                <Image
-                  src={Golden}
-                  alt="Dog Illustration"
-                  fit="contain"
-                  width="100%"
-                  height="100%"
-                />
-              </Box> */}
-              <Text
-                fs="italic"
-                style={{
-                  zIndex: 2,
-                  marginTop: "20px",
-                  fontWeight: 500,
-                  fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
-                  lineHeight: "1.2",
-                }}
-              >
-                I'm Haley.
-              </Text>
+
+
+    <Text
+      style={{
+        lineHeight: "1.5",
+        marginBottom: "30px",
+        fontSize: "clamp(1.25rem, 1.5vw, 1.75rem)",
+        width: "100%", 
+      }}
+    >
+      <div style={{ textIndent: "70px" }}>
+        My top priority for dogs in my care is to minimize stress and
+        to never ever create any new fear or anxiety (understanding
+        that some dogs come to me with existing fears and anxieties).
+        I accomplish this do-no-harm approach by adhering to the
+        following:{" "}
+      </div>
+      <List 
+        type="ordered"
+        style={{ 
+          paddingLeft: "70px", // Match the text indent of paragraph
+          marginTop: "10px" 
+        }}
+      >
+        <List.Item>
+          I only use positive reinforcement training methods—{" "}
+          <em>only</em>.
+        </List.Item>
+        <List.Item>
+          Dogs stay in my quiet and calm home training environment.
+        </List.Item>
+        <List.Item>
+          We engage in tons of enrichment and play.
+        </List.Item>
+      </List>
+    </Text>
+                <Box
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                    justifyContent: "flex-end",
+                  }}
+                >
+                  <Text
+                    size="lg"
+                    style={{
+                      zIndex: 2,
+                      fontWeight: 500,
+                      fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
+                      lineHeight: "1.2",
+                      marginRight: "0.5rem",
+                    }}
+                  >
+                    Hello there,
+                  </Text>
+                  <Text
+                    fs="italic"
+                    style={{
+                      zIndex: 2,
+                      fontWeight: 500,
+                      fontSize: "clamp(2.5rem, 2.5vw, 3rem)",
+                      lineHeight: "1.2",
+                    }}
+                  >
+                    I'm Haley.
+                  </Text>
+                </Box>
+              </Box>
             </Box>
           </Grid.Col>
         </Grid>
