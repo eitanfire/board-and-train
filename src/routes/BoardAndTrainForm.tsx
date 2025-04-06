@@ -21,6 +21,7 @@ import {
   List,
   Paper,
   Stack,
+  AppShell
 } from "@mantine/core";
 
 import { DatePickerInput } from "@mantine/dates";
@@ -237,394 +238,401 @@ const BoardAndTrainForm: React.FC = () => {
   };
 
   return (
-    <Container size="lg" py={40}>
-      <Title order={1} ta="center" mb={50} c={PRIMARY_COLOR}>
-        Dog Board & Train Application
-      </Title>
+    <AppShell c="customColor.6">
+      <Container size="lg" py={40}>
+        <Title order={1} ta="center" mb={50} c="customColor.5">
+          Dog Board & Train Application
+        </Title>
 
-      <Paper withBorder shadow="md" p={30} radius="md" mb={40}>
-        <Stepper active={active} onStepClick={setActive} color="blue">
-          <Stepper.Step label="Owner Information" description="Your details">
-            <Box mt={30}>
-              <form>
-                <Grid>
-                  <Grid.Col span={12}>
-                    <TextInput
-                      label="Full Name"
-                      placeholder="Your name"
-                      required
-                      {...form.getInputProps("ownerName")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <TextInput
-                      label="Email"
-                      placeholder="your@email.com"
-                      required
-                      {...form.getInputProps("email")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <TextInput
-                      label="Phone Number"
-                      placeholder="(123) 456-7890"
-                      required
-                      {...form.getInputProps("phone")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={12}>
-                    <TextInput
-                      label="Address"
-                      placeholder="Your address"
-                      {...form.getInputProps("address")}
-                    />
-                  </Grid.Col>
-                </Grid>
-              </form>
-            </Box>
-          </Stepper.Step>
-
-          <Stepper.Step label="Dog Information" description="About your dog">
-            <Box mt={30}>
-              <form>
-                <Grid>
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <TextInput
-                      label="Dog's Name"
-                      placeholder="Name"
-                      required
-                      {...form.getInputProps("dogName")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <TextInput
-                      label="Breed"
-                      placeholder="Breed or mix"
-                      required
-                      {...form.getInputProps("breed")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 4 }}>
-                    <NumberInput
-                      label="Age (years)"
-                      placeholder="Age"
-                      min={0.1}
-                      max={20}
-                      required
-                      {...form.getInputProps("age")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 4 }}>
-                    <Select
-                      label="Gender"
-                      placeholder="Select"
-                      required
-                      data={[
-                        { value: "Male", label: "Male" },
-                        { value: "Female", label: "Female" },
-                      ]}
-                      {...form.getInputProps("gender")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 12, md: 4 }}>
-                    <NumberInput
-                      label="Weight (lbs)"
-                      placeholder="Approximate"
-                      min={1}
-                      max={200}
-                      required
-                      {...form.getInputProps("weight")}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={12}>
-                    <Checkbox
-                      label="Spayed/Neutered"
-                      {...form.getInputProps("neutered", { type: "checkbox" })}
-                    />
-                  </Grid.Col>
-                  <Grid.Col span={12}>
-                    <FileInput
-                      label="Upload a photo of your dog (optional)"
-                      placeholder="Choose file"
-                      accept="image/*"
-                    />
-                  </Grid.Col>
-                </Grid>
-              </form>
-            </Box>
-          </Stepper.Step>
-
-          <Stepper.Step
-            label="Program Selection"
-            description="Choose a program"
-          >
-            <Box mt={30}>
-              {renderProgramCards(selectedProgram)}
-
-              <Box mt={40}>
-                <DatePickerInput
-                  label="Preferred Start Date"
-                  placeholder="Select a date"
-                  required
-                  minDate={new Date()}
-                  {...form.getInputProps("startDate")}
-                />
-
-                <Textarea
-                  label="Special Requirements"
-                  placeholder="Any specific training goals or concerns?"
-                  mt="md"
-                  autosize
-                  minRows={3}
-                  {...form.getInputProps("specialRequirements")}
-                />
-
-                <Textarea
-                  label="Dietary Restrictions"
-                  placeholder="Any food allergies or special diets?"
-                  mt="md"
-                  autosize
-                  minRows={2}
-                  {...form.getInputProps("dietaryRestrictions")}
-                />
-
-                <Textarea
-                  label="Medications"
-                  placeholder="List any medications your dog takes"
-                  mt="md"
-                  autosize
-                  minRows={2}
-                  {...form.getInputProps("medications")}
-                />
-
-                <Divider
-                  my="xl"
-                  label="Additional Services"
-                  labelPosition="center"
-                />
-
-                <Group>
-                  <Checkbox
-                    label="Extra Grooming Sessions (+$150)"
-                    {...form.getInputProps("extraGrooming", {
-                      type: "checkbox",
-                    })}
-                  />
-
-                  <Checkbox
-                    label="Advanced Training Tools Package (+$100)"
-                    {...form.getInputProps("advancedTrainingTools", {
-                      type: "checkbox",
-                    })}
-                  />
-
-                  <Checkbox
-                    label="In-Home Follow-Up Session (+$200)"
-                    {...form.getInputProps("inHomeFollowUp", {
-                      type: "checkbox",
-                    })}
-                  />
-                </Group>
+        <Paper withBorder shadow="md" p={30} radius="md" mb={40}>
+          <Stepper active={active} onStepClick={setActive} color="blue">
+            <Stepper.Step label="Owner Information" description="Your details">
+              <Box mt={30}>
+                <form>
+                  <Grid>
+                    <Grid.Col span={12}>
+                      <TextInput
+                        label="Full Name"
+                        placeholder="Your name"
+                        required
+                        {...form.getInputProps("ownerName")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 6 }}>
+                      <TextInput
+                        label="Email"
+                        placeholder="your@email.com"
+                        required
+                        {...form.getInputProps("email")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 6 }}>
+                      <TextInput
+                        label="Phone Number"
+                        placeholder="(123) 456-7890"
+                        required
+                        {...form.getInputProps("phone")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={12}>
+                      <TextInput
+                        label="Address"
+                        placeholder="Your address"
+                        {...form.getInputProps("address")}
+                      />
+                    </Grid.Col>
+                  </Grid>
+                </form>
               </Box>
-            </Box>
-          </Stepper.Step>
+            </Stepper.Step>
 
-          <Stepper.Step label="Review & Agree" description="Final step">
-            <Box mt={30}>
-              <Title order={3} mb="md">
-                Review Your Application
-              </Title>
+            <Stepper.Step label="Dog Information" description="About your dog">
+              <Box mt={30}>
+                <form>
+                  <Grid>
+                    <Grid.Col span={{ base: 12, md: 6 }}>
+                      <TextInput
+                        label="Dog's Name"
+                        placeholder="Name"
+                        required
+                        {...form.getInputProps("dogName")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 6 }}>
+                      <TextInput
+                        label="Breed"
+                        placeholder="Breed or mix"
+                        required
+                        {...form.getInputProps("breed")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 4 }}>
+                      <NumberInput
+                        label="Age (years)"
+                        placeholder="Age"
+                        min={0.1}
+                        max={20}
+                        required
+                        {...form.getInputProps("age")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 4 }}>
+                      <Select
+                        label="Gender"
+                        placeholder="Select"
+                        required
+                        data={[
+                          { value: "Male", label: "Male" },
+                          { value: "Female", label: "Female" },
+                        ]}
+                        {...form.getInputProps("gender")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={{ base: 12, md: 4 }}>
+                      <NumberInput
+                        label="Weight (lbs)"
+                        placeholder="Approximate"
+                        min={1}
+                        max={200}
+                        required
+                        {...form.getInputProps("weight")}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={12}>
+                      <Checkbox
+                        label="Spayed/Neutered"
+                        {...form.getInputProps("neutered", {
+                          type: "checkbox",
+                        })}
+                      />
+                    </Grid.Col>
+                    <Grid.Col span={12}>
+                      <FileInput
+                        label="Upload a photo of your dog (optional)"
+                        placeholder="Choose file"
+                        accept="image/*"
+                      />
+                    </Grid.Col>
+                  </Grid>
+                </form>
+              </Box>
+            </Stepper.Step>
 
-              <Stack gap="md">
-                <Paper withBorder p="md">
-                  <Title order={4} mb="sm">
-                    Owner Information
-                  </Title>
-                  <List>
-                    <List.Item>
-                      <strong>Name:</strong> {form.values.ownerName}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Email:</strong> {form.values.email}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Phone:</strong> {form.values.phone}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Address:</strong> {form.values.address}
-                    </List.Item>
-                  </List>
-                </Paper>
+            <Stepper.Step
+              label="Program Selection"
+              description="Choose a program"
+            >
+              <Box mt={30}>
+                {renderProgramCards(selectedProgram)}
 
-                <Paper withBorder p="md">
-                  <Title order={4} mb="sm">
-                    Dog Information
-                  </Title>
-                  <List>
-                    <List.Item>
-                      <strong>Name:</strong> {form.values.dogName}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Breed:</strong> {form.values.breed}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Age:</strong> {form.values.age} years
-                    </List.Item>
-                    <List.Item>
-                      <strong>Gender:</strong> {form.values.gender}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Weight:</strong> {form.values.weight} lbs
-                    </List.Item>
-                    <List.Item>
-                      <strong>Spayed/Neutered:</strong>{" "}
-                      {form.values.neutered ? "Yes" : "No"}
-                    </List.Item>
-                  </List>
-                </Paper>
+                <Box mt={40}>
+                  <DatePickerInput
+                    label="Preferred Start Date"
+                    placeholder="Select a date"
+                    required
+                    minDate={new Date()}
+                    {...form.getInputProps("startDate")}
+                  />
 
-                <Paper withBorder p="md">
-                  <Title order={4} mb="sm">
-                    Program Details
-                  </Title>
-                  <List>
-                    <List.Item>
-                      <strong>Selected Program:</strong>{" "}
-                      {trainingPrograms.find(
-                        (p) => p.id === form.values.programId
-                      )?.title || "None selected"}
-                    </List.Item>
-                    <List.Item>
-                      <strong>Start Date:</strong>{" "}
-                      {form.values.startDate
-                        ? form.values.startDate.toLocaleDateString()
-                        : "Not selected"}
-                    </List.Item>
-                    {form.values.specialRequirements && (
-                      <List.Item>
-                        <strong>Special Requirements:</strong>{" "}
-                        {form.values.specialRequirements}
-                      </List.Item>
-                    )}
-                    {form.values.dietaryRestrictions && (
-                      <List.Item>
-                        <strong>Dietary Restrictions:</strong>{" "}
-                        {form.values.dietaryRestrictions}
-                      </List.Item>
-                    )}
-                    {form.values.medications && (
-                      <List.Item>
-                        <strong>Medications:</strong> {form.values.medications}
-                      </List.Item>
-                    )}
-                  </List>
-                </Paper>
+                  <Textarea
+                    label="Special Requirements"
+                    placeholder="Any specific training goals or concerns?"
+                    mt="md"
+                    autosize
+                    minRows={3}
+                    {...form.getInputProps("specialRequirements")}
+                  />
 
-                {(form.values.extraGrooming ||
-                  form.values.advancedTrainingTools ||
-                  form.values.inHomeFollowUp) && (
+                  <Textarea
+                    label="Dietary Restrictions"
+                    placeholder="Any food allergies or special diets?"
+                    mt="md"
+                    autosize
+                    minRows={2}
+                    {...form.getInputProps("dietaryRestrictions")}
+                  />
+
+                  <Textarea
+                    label="Medications"
+                    placeholder="List any medications your dog takes"
+                    mt="md"
+                    autosize
+                    minRows={2}
+                    {...form.getInputProps("medications")}
+                  />
+
+                  <Divider
+                    my="xl"
+                    label="Additional Services"
+                    labelPosition="center"
+                  />
+
+                  <Group>
+                    <Checkbox
+                      label="Extra Grooming Sessions (+$150)"
+                      {...form.getInputProps("extraGrooming", {
+                        type: "checkbox",
+                      })}
+                    />
+
+                    <Checkbox
+                      label="Advanced Training Tools Package (+$100)"
+                      {...form.getInputProps("advancedTrainingTools", {
+                        type: "checkbox",
+                      })}
+                    />
+
+                    <Checkbox
+                      label="In-Home Follow-Up Session (+$200)"
+                      {...form.getInputProps("inHomeFollowUp", {
+                        type: "checkbox",
+                      })}
+                    />
+                  </Group>
+                </Box>
+              </Box>
+            </Stepper.Step>
+
+            <Stepper.Step label="Review & Agree" description="Final step">
+              <Box mt={30}>
+                <Title order={3} mb="md">
+                  Review Your Application
+                </Title>
+
+                <Stack gap="md">
                   <Paper withBorder p="md">
                     <Title order={4} mb="sm">
-                      Additional Services
+                      Owner Information
                     </Title>
                     <List>
-                      {form.values.extraGrooming && (
-                        <List.Item>Extra Grooming Sessions (+$150)</List.Item>
-                      )}
-                      {form.values.advancedTrainingTools && (
+                      <List.Item>
+                        <strong>Name:</strong> {form.values.ownerName}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Email:</strong> {form.values.email}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Phone:</strong> {form.values.phone}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Address:</strong> {form.values.address}
+                      </List.Item>
+                    </List>
+                  </Paper>
+
+                  <Paper withBorder p="md">
+                    <Title order={4} mb="sm">
+                      Dog Information
+                    </Title>
+                    <List>
+                      <List.Item>
+                        <strong>Name:</strong> {form.values.dogName}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Breed:</strong> {form.values.breed}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Age:</strong> {form.values.age} years
+                      </List.Item>
+                      <List.Item>
+                        <strong>Gender:</strong> {form.values.gender}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Weight:</strong> {form.values.weight} lbs
+                      </List.Item>
+                      <List.Item>
+                        <strong>Spayed/Neutered:</strong>{" "}
+                        {form.values.neutered ? "Yes" : "No"}
+                      </List.Item>
+                    </List>
+                  </Paper>
+
+                  <Paper withBorder p="md">
+                    <Title order={4} mb="sm">
+                      Program Details
+                    </Title>
+                    <List>
+                      <List.Item>
+                        <strong>Selected Program:</strong>{" "}
+                        {trainingPrograms.find(
+                          (p) => p.id === form.values.programId
+                        )?.title || "None selected"}
+                      </List.Item>
+                      <List.Item>
+                        <strong>Start Date:</strong>{" "}
+                        {form.values.startDate
+                          ? form.values.startDate.toLocaleDateString()
+                          : "Not selected"}
+                      </List.Item>
+                      {form.values.specialRequirements && (
                         <List.Item>
-                          Advanced Training Tools Package (+$100)
+                          <strong>Special Requirements:</strong>{" "}
+                          {form.values.specialRequirements}
                         </List.Item>
                       )}
-                      {form.values.inHomeFollowUp && (
-                        <List.Item>In-Home Follow-Up Session (+$200)</List.Item>
+                      {form.values.dietaryRestrictions && (
+                        <List.Item>
+                          <strong>Dietary Restrictions:</strong>{" "}
+                          {form.values.dietaryRestrictions}
+                        </List.Item>
+                      )}
+                      {form.values.medications && (
+                        <List.Item>
+                          <strong>Medications:</strong>{" "}
+                          {form.values.medications}
+                        </List.Item>
                       )}
                     </List>
                   </Paper>
-                )}
-              </Stack>
 
-              <Box mt={30}>
-                <Title order={4} mb="sm">
-                  Agreements
-                </Title>
+                  {(form.values.extraGrooming ||
+                    form.values.advancedTrainingTools ||
+                    form.values.inHomeFollowUp) && (
+                    <Paper withBorder p="md">
+                      <Title order={4} mb="sm">
+                        Additional Services
+                      </Title>
+                      <List>
+                        {form.values.extraGrooming && (
+                          <List.Item>Extra Grooming Sessions (+$150)</List.Item>
+                        )}
+                        {form.values.advancedTrainingTools && (
+                          <List.Item>
+                            Advanced Training Tools Package (+$100)
+                          </List.Item>
+                        )}
+                        {form.values.inHomeFollowUp && (
+                          <List.Item>
+                            In-Home Follow-Up Session (+$200)
+                          </List.Item>
+                        )}
+                      </List>
+                    </Paper>
+                  )}
+                </Stack>
 
-                <Checkbox
-                  mb="md"
-                  label="I understand and agree to the boarding and training policies, including vaccination requirements and cancellation policy."
-                  required
-                  {...form.getInputProps("agreeToPolicies", {
-                    type: "checkbox",
-                  })}
-                />
+                <Box mt={30}>
+                  <Title order={4} mb="sm">
+                    Agreements
+                  </Title>
 
-                <Checkbox
-                  mb="md"
-                  label="I understand that a 50% deposit is required to secure my spot, with the remaining balance due at drop-off."
-                  required
-                  {...form.getInputProps("agreeToPayment", {
-                    type: "checkbox",
-                  })}
-                />
+                  <Checkbox
+                    mb="md"
+                    label="I understand and agree to the boarding and training policies, including vaccination requirements and cancellation policy."
+                    required
+                    {...form.getInputProps("agreeToPolicies", {
+                      type: "checkbox",
+                    })}
+                  />
 
-                <Text size="sm" c="dimmed" mb="lg">
-                  By submitting this form, you agree to our{" "}
-                  <Anchor href="#" target="_blank">
-                    Terms of Service
-                  </Anchor>{" "}
-                  and{" "}
-                  <Anchor href="#" target="_blank">
-                    Privacy Policy
-                  </Anchor>
-                  .
-                </Text>
+                  <Checkbox
+                    mb="md"
+                    label="I understand that a 50% deposit is required to secure my spot, with the remaining balance due at drop-off."
+                    required
+                    {...form.getInputProps("agreeToPayment", {
+                      type: "checkbox",
+                    })}
+                  />
+
+                  <Text size="sm" c="dimmed" mb="lg">
+                    By submitting this form, you agree to our{" "}
+                    <Anchor href="#" target="_blank">
+                      Terms of Service
+                    </Anchor>{" "}
+                    and{" "}
+                    <Anchor href="#" target="_blank">
+                      Privacy Policy
+                    </Anchor>
+                    .
+                  </Text>
+                </Box>
               </Box>
-            </Box>
-          </Stepper.Step>
+            </Stepper.Step>
 
-          <Stepper.Completed>
-            <Box mt={40} ta="center">
-              <Title order={2} mb="md" c="green">
-                Application Submitted Successfully!
-              </Title>
-              <Text mb="xl">
-                Thank you for your interest in our Board & Train program. We'll
-                review your application and contact you soon to discuss next
-                steps and schedule an evaluation.
-              </Text>
-              <Button onClick={() => setActive(0)} color="blue">
-                Submit Another Application
-              </Button>
-            </Box>
-          </Stepper.Completed>
-        </Stepper>
-
-        <Group justify="space-between" mt="xl">
-          {active > 0 && (
-            <Button variant="default" onClick={prevStep}>
-              Back
-            </Button>
-          )}
-          {active === 4 ? (
-            <Button onClick={() => setActive(0)} color="blue">
-              Start Over
-            </Button>
-          ) : active < 4 ? (
-            active === 3 ? (
-              <form onSubmit={form.onSubmit(handleSubmit)}>
-                <Button type="submit" color="blue">
-                  Submit Application
+            <Stepper.Completed>
+              <Box mt={40} ta="center">
+                <Title order={2} mb="md" c="green">
+                  Application Submitted Successfully!
+                </Title>
+                <Text mb="xl">
+                  Thank you for your interest in our Board & Train program.
+                  We'll review your application and contact you soon to discuss
+                  next steps and schedule an evaluation.
+                </Text>
+                <Button onClick={() => setActive(0)} color="blue">
+                  Submit Another Application
                 </Button>
-              </form>
-            ) : (
-              <Button onClick={nextStep} color="blue">
-                Next Step
+              </Box>
+            </Stepper.Completed>
+          </Stepper>
+
+          <Group justify="space-between" mt="xl">
+            {active > 0 && (
+              <Button variant="default" onClick={prevStep}>
+                Back
               </Button>
-            )
-          ) : null}
-        </Group>
-      </Paper>
-    </Container>
+            )}
+            {active === 4 ? (
+              <Button onClick={() => setActive(0)} color="blue">
+                Start Over
+              </Button>
+            ) : active < 4 ? (
+              active === 3 ? (
+                <form onSubmit={form.onSubmit(handleSubmit)}>
+                  <Button type="submit" color="blue">
+                    Submit Application
+                  </Button>
+                </form>
+              ) : (
+                <Button onClick={nextStep} color="blue">
+                  Next Step
+                </Button>
+              )
+            ) : null}
+          </Group>
+        </Paper>
+      </Container>
+    </AppShell>
   );
 };
 
