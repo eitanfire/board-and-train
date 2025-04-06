@@ -4,7 +4,7 @@ import { AppShell } from "@mantine/core";
 
 const AboutPage = () => {
   return (
-    <AppShell c="customColor.5">
+    <AppShell c="customColor.6">
       <Container style={{ paddingTop: 50, position: "relative", fontSize: "2rem" }}>
         <Center>
           <Grid gutter="lg">
