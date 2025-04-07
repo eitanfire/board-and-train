@@ -245,7 +245,7 @@ const BoardAndTrainForm: React.FC = () => {
         </Title>
 
         <Paper withBorder shadow="md" p={30} radius="md" mb={40}>
-          <Stepper active={active} onStepClick={setActive} color="blue">
+          <Stepper active={active} onStepClick={setActive} c="customColor.5">
             <Stepper.Step label="Owner Information" description="Your details">
               <Box mt={30}>
                 <form>
