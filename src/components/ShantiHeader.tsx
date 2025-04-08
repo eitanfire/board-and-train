@@ -15,17 +15,25 @@ const ShantiHeader = () => {
           }}
         >
           <Flex direction="column">
-            <Title
-              order={1}
+            <Link
+              to="/"
               style={{
-                marginBottom: 0,
-                fontFamily: "Habibi, serif",
-                fontWeight: 400,
-                fontSize: "clamp(24px, 3vw, 36px)",
+                textDecoration: "none",
               }}
             >
-              Shanti Stay & Train
-            </Title>
+              <Title
+                c="customColor.6"
+                order={1}
+                style={{
+                  marginBottom: 0,
+                  fontFamily: "Habibi, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(24px, 3vw, 36px)",
+                }}
+              >
+                Shanti Stay & Train
+              </Title>
+            </Link>
           </Flex>
 
           <Flex
@@ -44,11 +52,18 @@ const ShantiHeader = () => {
               <Link
                 key={to}
                 to={to}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.textDecoration = "underline")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.textDecoration = "none")
+                }
                 style={{
                   textDecoration: "none",
                   fontFamily: "Habibi, serif",
                   fontWeight: 400,
                   fontSize: "clamp(14px, 1.8vw, 22px)",
+                  color: "#8a6e60",
                 }}
               >
                 {label}
