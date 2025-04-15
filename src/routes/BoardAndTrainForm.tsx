@@ -408,12 +408,6 @@ const BoardAndTrainForm: React.FC = () => {
                   />
 
                   <Group>
-                    <Checkbox
-                      label="Extra Grooming Sessions (+$150)"
-                      {...form.getInputProps("extraGrooming", {
-                        type: "checkbox",
-                      })}
-                    />
 
                     <Checkbox
                       label="Advanced Training Tools Package (+$100)"
