@@ -8,10 +8,6 @@ import {
   Box,
   AppShell,
 } from "@mantine/core";
-// import DogDoodle from "/src/assets/dog-pet-animal-continuous-one-line-art-drawing-dog-icon-simple-outline-vector-illustration_1083542-648.png";
-// import HoliDog from "/src/assets/holi-dog.png";
-// import Golden from "/src/assets/golden.jpeg";
-// import GoldenWithMarigolds from "/src/assets/golden-with-marigolds.jpeg";
 
 const WelcomePage: React.FC = () => {
   return (
