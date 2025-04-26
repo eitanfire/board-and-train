@@ -51,25 +51,6 @@ const WelcomePage: React.FC = () => {
           </Grid.Col>
 
           <Grid.Col style={{ position: "relative", minHeight: "500px" }}>
-            {/* <Box
-              style={{
-                position: "absolute",
-                // bottom: 2,
-                right: 0,
-                // width: "100%",
-                // height: "100%",
-                opacity: 0.35,
-                zIndex: 1,
-              }}
-            >
-              <Image
-                src={GoldenWithMarigolds}
-                alt="Dog Illustration"
-                fit="contain"
-                // width="100%"
-                // height="100%"
-              />
-            </Box> */}
 
             <Box
               style={{
