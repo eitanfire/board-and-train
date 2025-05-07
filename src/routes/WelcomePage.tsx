@@ -202,11 +202,10 @@ const WelcomePage: React.FC = () => {
               }}
             >
               &nbsp; &nbsp;
-              {/* Change the parent Box to use column direction */}
               <Box
                 style={{
                   display: "flex",
-                  flexDirection: "column", // This is the key change
+                  flexDirection: "column",
                   alignItems: "flex-start",
                   fontSize: "clamp(2.25rem, 2vw, 2.75rem)",
                 }}
@@ -231,7 +230,7 @@ const WelcomePage: React.FC = () => {
       <List 
         type="ordered"
         style={{ 
-          paddingLeft: "70px", // Match the text indent of paragraph
+          paddingLeft: "70px",
           marginTop: "10px" 
         }}
       >
