@@ -264,7 +264,6 @@ const Content: React.FC = () => {
         </Grid>
       </Paper>
 
-      {/* Our Trainers Section - New! */}
       <Title order={2} ta="center" mb="xl">
         Meet Our Expert Trainers
       </Title>
@@ -362,7 +361,6 @@ const Content: React.FC = () => {
 
       <Divider my="xl" />
 
-      {/* Facility Section */}
       <Title order={2} ta="center" mb="xl">
         Behavioral Health Facility
       </Title>
@@ -618,7 +616,6 @@ const Content: React.FC = () => {
         </Accordion.Item>
       </Accordion>
 
-      {/* Testimonials Section with Dog Image */}
       <Grid gutter={0} mb="xl">
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Image
@@ -678,7 +675,6 @@ const Content: React.FC = () => {
         </Grid.Col>
       </Grid>
 
-      {/* Final CTA */}
       <Box mt="xl" py="xl" ta="center">
         <Button size="lg" radius="md" color="blue">
           Book Your Free Discovery Call
