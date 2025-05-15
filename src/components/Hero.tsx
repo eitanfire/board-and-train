@@ -20,9 +20,9 @@ const Hero = () => {
         <Paper
           withBorder
           style={{
-            position: "relative", // Remove absolute positioning
-            width: "100%", // Keep it responsive
-            height: "100%", // Make it fill the container
+            position: "relative",
+            width: "100%",
+            height: "100%",
             backgroundImage: `url(${fabianGieske})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -36,7 +36,6 @@ const Hero = () => {
             radius="md"
           />
 
-          {/* Centering content using Container like other sections */}
           <Container
             size="lg"
             style={{ position: "relative", zIndex: 1, textAlign: "center" }}
