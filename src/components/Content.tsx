@@ -29,10 +29,8 @@ const Content: React.FC = () => {
   return (
     <Container size="xl" py="xl">
       <Hero />
-      {/* Life-Changing Experience Section with Image */}
       <Box mt="xl">
         {" "}
-        {/* This ensures the content starts below */}
         <Grid mb="xl" gutter="xl">
           <Grid.Col span={{ base: 12, md: 7 }}>
             <Box>
@@ -63,7 +61,6 @@ const Content: React.FC = () => {
         </Grid>
       </Box>
 
-      {/* Programs Perfect For Section */}
       <Paper
         p="xl"
         radius="md"
@@ -327,7 +324,6 @@ const Content: React.FC = () => {
         </Grid.Col>
       </Grid>
 
-      {/* CTA Section with Remi Image */}
       <Box py="xl" mb="xl">
         <Grid gutter="xl" align="center">
           <Grid.Col span={{ base: 12, md: 7 }}>
