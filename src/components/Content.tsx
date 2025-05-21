@@ -230,7 +230,6 @@ const Content: React.FC = () => {
         </Accordion.Item>
       </Accordion>
 
-      {/* Pricing Info with trainer image */}
       <Paper
         p="xl"
         radius="md"
