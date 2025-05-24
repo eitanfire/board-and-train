@@ -75,13 +75,11 @@ const BoardAndTrainForm: React.FC = () => {
 
   const form = useForm({
     initialValues: {
-      // Owner Information
       ownerName: "",
       email: "",
       phone: "",
       address: "",
 
-      // Dog Information
       dogName: "",
       breed: "",
       age: null as number | null,
@@ -89,19 +87,16 @@ const BoardAndTrainForm: React.FC = () => {
       weight: null as number | null,
       neutered: false,
 
-      // Program Details
       programId: "",
       startDate: null as Date | null,
       specialRequirements: "",
       dietaryRestrictions: "",
       medications: "",
 
-      // Additional Services
       extraGrooming: false,
       advancedTrainingTools: false,
       inHomeFollowUp: false,
 
-      // Agreements
       agreeToPolicies: false,
       agreeToPayment: false,
     },
@@ -158,10 +153,9 @@ const BoardAndTrainForm: React.FC = () => {
   };
 
   const handleSubmit = (values: typeof form.values) => {
-    // Here you would typically send the form data to your backend
+    // Send the form data to backend here
     console.log("Form submitted with values:", values);
 
-    // Show success notification
     notifications.show({
       title: "Application Submitted!",
       message: `We've received your application for ${values.dogName}. We'll be in touch soon!`,
