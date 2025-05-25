@@ -464,7 +464,6 @@ const Content: React.FC = () => {
         </Grid.Col>
       </Grid>
 
-      {/* Important Facts Section */}
       <Title order={2} mb="xl" ta="center">
         8 Important Facts about Haley's Camp + Coaching
       </Title>
