@@ -5,7 +5,7 @@ import {
 } from "@mantine/core";
 import { IconCheck } from "@tabler/icons-react";
 
-const PRIMARY_COLOR = "#3B82F6"; // A nice blue color
+const PRIMARY_COLOR = "#3B82F6";
 
 const AboutUs: React.FC = () => {
   return (
