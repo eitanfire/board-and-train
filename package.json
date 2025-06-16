@@ -17,6 +17,7 @@
     "@mantine/hooks": "7.17.2",
     "@mantine/notifications": "^7.17.2",
     "@mantine/styles": "^6.0.22",
+    "@supabase/supabase-js": "^2.50.0",
     "@tabler/icons-react": "^3.31.0",
     "@tanstack/react-router": "^1.114.29",
     "@tanstack/react-router-devtools": "^1.114.29",

@@ -21,15 +21,18 @@ import {
   List,
   Paper,
   Stack,
-  AppShell
+  AppShell,
+  Loader,
 } from "@mantine/core";
 
 import { DatePickerInput } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
-import { IconCheck } from "@tabler/icons-react";
+import { IconCheck, IconX } from "@tabler/icons-react";
+import { supabase, BoardAndTrainApplication } from "../supabase";
 
 const PRIMARY_COLOR = "#3B82F6";
+
 interface TrainingProgram {
   id: string;
   title: string;
@@ -72,6 +75,8 @@ const trainingPrograms: TrainingProgram[] = [
 const BoardAndTrainForm: React.FC = () => {
   const [active, setActive] = useState(0);
   const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [dogPhoto, setDogPhoto] = useState<File | null>(null);
 
   const form = useForm({
     initialValues: {
@@ -124,18 +129,88 @@ const BoardAndTrainForm: React.FC = () => {
     },
   });
 
-  const validateFields = () => {
-    if (active === 0) {
-      return form.validate();
+  // Upload dog photo to Supabase Storage
+  const uploadDogPhoto = async (file: File): Promise<string | null> => {
+    try {
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+      const filePath = `dog-photos/${fileName}`;
+
+      const { data, error } = await supabase.storage
+        .from('dog-photos') // Make sure this bucket exists in your Supabase storage
+        .upload(filePath, file);
+
+      if (error) {
+        console.error('Error uploading photo:', error);
+        return null;
+      }
+
+      // Get public URL
+      const { data: { publicUrl } } = supabase.storage
+        .from('dog-photos')
+        .getPublicUrl(filePath);
+
+      return publicUrl;
+    } catch (error) {
+      console.error('Error uploading photo:', error);
+      return null;
     }
-    if (active === 1) {
-      return form.validate();
-    }
-    if (active === 2) {
-      return form.validate();
-    }
-    return form.validate();
   };
+
+  const validateFields = () => {
+  const values = form.values;
+  const errors: any = {};
+
+  if (active === 0) {
+    // Step 1: Owner Information validation
+    if (!values.ownerName || values.ownerName.trim().length < 2) {
+      errors.ownerName = "Name must have at least 2 letters";
+    }
+    if (!values.email || !/^\S+@\S+$/.test(values.email)) {
+      errors.email = "Invalid email";
+    }
+    if (!values.phone || !/^\d{10}$/.test(values.phone.replace(/\D/g, ""))) {
+      errors.phone = "Please enter a valid 10-digit phone number";
+    }
+  } else if (active === 1) {
+    // Step 2: Dog Information validation
+    if (!values.dogName || values.dogName.trim().length < 1) {
+      errors.dogName = "Dog name is required";
+    }
+    if (!values.breed || values.breed.trim().length < 2) {
+      errors.breed = "Breed is required";
+    }
+    if (values.age === null || values.age === undefined) {
+      errors.age = "Age is required";
+    }
+    if (!values.gender) {
+      errors.gender = "Please select gender";
+    }
+    if (values.weight === null || values.weight === undefined) {
+      errors.weight = "Weight is required";
+    }
+  } else if (active === 2) {
+    // Step 3: Program Selection validation
+    if (!values.programId) {
+      errors.programId = "Please select a training program";
+    }
+    if (!values.startDate) {
+      errors.startDate = "Please select a start date";
+    }
+  } else if (active === 3) {
+    // Step 4: Review & Agree validation
+    if (!values.agreeToPolicies) {
+      errors.agreeToPolicies = "You must agree to our policies";
+    }
+    if (!values.agreeToPayment) {
+      errors.agreeToPayment = "You must agree to the payment terms";
+    }
+  }
+
+  // Set errors and return validation result
+  form.setErrors(errors);
+  return { hasErrors: Object.keys(errors).length > 0 };
+};
 
   const nextStep = () => {
     const validation = validateFields();
@@ -152,20 +227,78 @@ const BoardAndTrainForm: React.FC = () => {
     form.setFieldValue("programId", programId);
   };
 
-  const handleSubmit = (values: typeof form.values) => {
-    // Send the form data to backend here
-    console.log("Form submitted with values:", values);
+  const handleSubmit = async (values: typeof form.values) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Upload dog photo if provided
+      let dogPhotoUrl: string | null = null;
+      if (dogPhoto) {
+        dogPhotoUrl = await uploadDogPhoto(dogPhoto);
+      }
 
-    notifications.show({
-      title: "Application Submitted!",
-      message: `We've received your application for ${values.dogName}. We'll be in touch soon!`,
-      color: "green",
-      icon: <IconCheck size={16} />,
-    });
+      // Prepare data for database
+      const applicationData: Omit<BoardAndTrainApplication, 'id' | 'created_at'> = {
+        owner_name: values.ownerName,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        dog_name: values.dogName,
+        breed: values.breed,
+        age: values.age!,
+        gender: values.gender as 'Male' | 'Female',
+        weight: values.weight!,
+        neutered: values.neutered,
+        dog_photo_url: dogPhotoUrl,
+        program_id: values.programId,
+        start_date: values.startDate!.toISOString().split('T')[0], // Convert to YYYY-MM-DD
+        special_requirements: values.specialRequirements,
+        dietary_restrictions: values.dietaryRestrictions,
+        medications: values.medications,
+        extra_grooming: values.extraGrooming,
+        advanced_training_tools: values.advancedTrainingTools,
+        in_home_follow_up: values.inHomeFollowUp,
+        status: 'pending'
+      };
 
-    // Reset form and go back to first step
-    form.reset();
-    setActive(0);
+      // Insert into Supabase
+      const { data, error } = await supabase
+        .from('board_and_train_applications')
+        .insert([applicationData])
+        .select()
+        .single();
+
+      if (error) {
+        throw error;
+      }
+
+      // Success notification
+      notifications.show({
+        title: "Application Submitted Successfully!",
+        message: `We've received your application for ${values.dogName}. Application ID: ${data.id}`,
+        color: "green",
+        icon: <IconCheck size={16} />,
+        autoClose: 10000,
+      });
+
+      // Reset form and go to completion step
+      form.reset();
+      setDogPhoto(null);
+      setSelectedProgram(null);
+      setActive(4);
+
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      
+      notifications.show({
+        title: "Submission Failed",
+        message: "There was an error submitting your application. Please try again.",
+        color: "red",
+        icon: <IconX size={16} />,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderProgramCards = (selectedProgram: string | null) => {
@@ -345,6 +478,8 @@ const BoardAndTrainForm: React.FC = () => {
                         label="Upload a photo of your dog (optional)"
                         placeholder="Choose file"
                         accept="image/*"
+                        value={dogPhoto}
+                        onChange={setDogPhoto}
                       />
                     </Grid.Col>
                   </Grid>
@@ -402,7 +537,6 @@ const BoardAndTrainForm: React.FC = () => {
                   />
 
                   <Group>
-
                     <Checkbox
                       label="Advanced Training Tools Package (+$100)"
                       {...form.getInputProps("advancedTrainingTools", {
@@ -595,7 +729,7 @@ const BoardAndTrainForm: React.FC = () => {
           </Stepper>
 
           <Group justify="space-between" mt="xl">
-            {active > 0 && (
+            {active > 0 && active < 4 && (
               <Button variant="default" onClick={prevStep}>
                 Back
               </Button>
@@ -607,8 +741,20 @@ const BoardAndTrainForm: React.FC = () => {
             ) : active < 4 ? (
               active === 3 ? (
                 <form onSubmit={form.onSubmit(handleSubmit)}>
-                  <Button type="submit" color="blue">
-                    Submit Application
+                  <Button 
+                    type="submit" 
+                    color="blue" 
+                    loading={isSubmitting}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader size="sm" mr="xs" />
+                        Submitting...
+                      </>
+                    ) : (
+                      'Submit Application'
+                    )}
                   </Button>
                 </form>
               ) : (
