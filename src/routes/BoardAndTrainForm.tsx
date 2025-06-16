@@ -302,7 +302,7 @@ const BoardAndTrainForm: React.FC = () => {
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, md: 4 }}>
                       <NumberInput
-                        label="Age (years)"
+                        label="Dog's Age (years)"
                         placeholder="Age"
                         min={0.1}
                         max={20}
@@ -312,7 +312,7 @@ const BoardAndTrainForm: React.FC = () => {
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, md: 4 }}>
                       <Select
-                        label="Gender"
+                        label="Dog's Gender"
                         placeholder="Select"
                         required
                         data={[
@@ -324,7 +324,7 @@ const BoardAndTrainForm: React.FC = () => {
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, md: 4 }}>
                       <NumberInput
-                        label="Weight (lbs)"
+                        label="Dog's Weight (lbs)"
                         placeholder="Approximate"
                         min={1}
                         max={200}

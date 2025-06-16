@@ -63,6 +63,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
+// Create and export the route tree
+
 export interface FileRoutesByFullPath {
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
