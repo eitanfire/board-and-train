@@ -249,7 +249,7 @@ const BoardAndTrainForm: React.FC = () => {
         gender: values.gender as 'Male' | 'Female',
         weight: values.weight!,
         neutered: values.neutered,
-        dog_photo_url: dogPhotoUrl,
+        dog_photo_url: dogPhotoUrl ?? undefined,
         program_id: values.programId,
         start_date: values.startDate!.toISOString().split('T')[0], // Convert to YYYY-MM-DD
         special_requirements: values.specialRequirements,

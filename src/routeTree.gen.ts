@@ -11,11 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as AdminImport } from './routes/admin'
 import { Route as WelcomePageImport } from './routes/WelcomePage'
 import { Route as BoardAndTrainFormImport } from './routes/BoardAndTrainForm'
 import { Route as AboutPageImport } from './routes/AboutPage'
 
 // Create/Update Routes
+
+const AdminRoute = AdminImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const WelcomePageRoute = WelcomePageImport.update({
   id: '/WelcomePage',
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WelcomePageImport
       parentRoute: typeof rootRoute
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
+  '/admin': typeof AdminRoute
 }
 
 export interface FileRoutesByTo {
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
+  '/admin': typeof AdminRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,20 @@ export interface FileRoutesById {
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
+  '/admin': typeof AdminRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage'
+  fullPaths: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage' | '/admin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage'
-  id: '__root__' | '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage'
+  to: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage' | '/admin'
+  id:
+    | '__root__'
+    | '/AboutPage'
+    | '/BoardAndTrainForm'
+    | '/WelcomePage'
+    | '/admin'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +119,14 @@ export interface RootRouteChildren {
   AboutPageRoute: typeof AboutPageRoute
   BoardAndTrainFormRoute: typeof BoardAndTrainFormRoute
   WelcomePageRoute: typeof WelcomePageRoute
+  AdminRoute: typeof AdminRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   AboutPageRoute: AboutPageRoute,
   BoardAndTrainFormRoute: BoardAndTrainFormRoute,
   WelcomePageRoute: WelcomePageRoute,
+  AdminRoute: AdminRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +141,8 @@ export const routeTree = rootRoute
       "children": [
         "/AboutPage",
         "/BoardAndTrainForm",
-        "/WelcomePage"
+        "/WelcomePage",
+        "/admin"
       ]
     },
     "/AboutPage": {
@@ -128,6 +153,9 @@ export const routeTree = rootRoute
     },
     "/WelcomePage": {
       "filePath": "WelcomePage.tsx"
+    },
+    "/admin": {
+      "filePath": "admin.tsx"
     }
   }
 }
