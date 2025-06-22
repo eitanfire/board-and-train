@@ -672,6 +672,4 @@ const AdminDashboard: React.FC = () => {
   );
 };
 
-export const Route = createFileRoute('/admin')({
-  component: AdminDashboard,
-});
+export default AdminDashboard;

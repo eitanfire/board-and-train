@@ -5,6 +5,7 @@ import { Outlet } from "@tanstack/react-router";
 import BoardAndTrainForm from "./routes/BoardAndTrainForm";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"; // Import the devtools
 import AboutPage from "./routes/AboutPage";
+import AdminDashboard from "./routes/admin";
 
 export const rootRoute = createRootRoute({
   component: () => (
@@ -35,9 +36,16 @@ export const contactRoute = createRoute({
   component: BoardAndTrainForm,
 });
 
+export const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminDashboard,
+});
+
 // Create the route tree
 export const routeTree = rootRoute.addChildren([
   welcomeRoute,
   aboutRoute,
   contactRoute,
+  adminRoute,
 ]);

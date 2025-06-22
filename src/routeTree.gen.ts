@@ -15,6 +15,7 @@ import { Route as AdminImport } from './routes/admin'
 import { Route as WelcomePageImport } from './routes/WelcomePage'
 import { Route as BoardAndTrainFormImport } from './routes/BoardAndTrainForm'
 import { Route as AboutPageImport } from './routes/AboutPage'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
@@ -42,10 +43,23 @@ const AboutPageRoute = AboutPageImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/AboutPage': {
       id: '/AboutPage'
       path: '/AboutPage'
@@ -80,6 +94,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
@@ -87,6 +102,7 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
@@ -95,6 +111,7 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
+  '/': typeof IndexRoute
   '/AboutPage': typeof AboutPageRoute
   '/BoardAndTrainForm': typeof BoardAndTrainFormRoute
   '/WelcomePage': typeof WelcomePageRoute
@@ -103,11 +120,17 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage' | '/admin'
+  fullPaths:
+    | '/'
+    | '/AboutPage'
+    | '/BoardAndTrainForm'
+    | '/WelcomePage'
+    | '/admin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage' | '/admin'
+  to: '/' | '/AboutPage' | '/BoardAndTrainForm' | '/WelcomePage' | '/admin'
   id:
     | '__root__'
+    | '/'
     | '/AboutPage'
     | '/BoardAndTrainForm'
     | '/WelcomePage'
@@ -116,6 +139,7 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AboutPageRoute: typeof AboutPageRoute
   BoardAndTrainFormRoute: typeof BoardAndTrainFormRoute
   WelcomePageRoute: typeof WelcomePageRoute
@@ -123,6 +147,7 @@ export interface RootRouteChildren {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AboutPageRoute: AboutPageRoute,
   BoardAndTrainFormRoute: BoardAndTrainFormRoute,
   WelcomePageRoute: WelcomePageRoute,
@@ -139,11 +164,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
+        "/",
         "/AboutPage",
         "/BoardAndTrainForm",
         "/WelcomePage",
         "/admin"
       ]
+    },
+    "/": {
+      "filePath": "index.tsx"
     },
     "/AboutPage": {
       "filePath": "AboutPage.tsx"
